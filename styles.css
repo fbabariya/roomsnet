@@ -1,0 +1,27 @@
+body {
+    background-color: #f8f9fb;
+}
+
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.empty-box i {
+    color: gray;
+}
+.announcements-card {
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding-right: 10px; /* Prevents text from hiding behind scrollbar */
+}
+

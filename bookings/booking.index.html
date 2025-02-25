@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoomsNet Dashboard</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="../inventory/inventory.css">
+    <link rel="stylesheet" href="../bookings/booking.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- Page Header Area-->
+    <header id="header" class="header">
+        <!-- Navigation -->
+        <div id="nav-placeholder"></div>
+    </header>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <input type="text" class="form-control w-25" placeholder="Search">
+            <div>
+                <button class="btn btn-outline-secondary">Advanced Search</button>
+                <button class="btn btn-outline-secondary">Refresh</button>
+                <button class="btn btn-primary">Export</button>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Status</th>
+                    <th>Unique ID</th>
+                    <th>Property</th>
+                    <th>Customer</th>
+                    <th>Dates</th>
+                    <th>Rooms Count</th>
+                    <th>Acked</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="badge bg-success">New</span></td>
+                    <td>OSA-9923B69307</td>
+                    <td>DEMO</td>
+                    <td>Priyanga Wijesiri</td>
+                    <td>Jan 29, 2025 → Jan 30, 2025</td>
+                    <td>3</td>
+                    <td><i class="fas fa-check-circle text-success"></i></td>
+                    <td>310.00 USD</td>
+                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#booking" class="text-primary">View</a></td>
+                </tr>
+                <tr>
+                    <td><span class="badge bg-danger">New</span></td>
+                    <td>OSA-29E2A7B63D</td>
+                    <td>DEMO</td>
+                    <td>HETTI VIDANA RALALAGE Wijesiri</td>
+                    <td>Jan 20, 2025 → Jan 23, 2025</td>
+                    <td>1</td>
+                    <td><i class="fas fa-check-circle text-success"></i></td>
+                    <td>300.00 USD</td>
+                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#booking" class="text-primary">View</a></td>
+                </tr>
+                <!-- Add more rows here -->
+            </tbody>
+        </table>
+        <div class="d-flex felx-row justify-content-end">
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled"><a class="page-link" href="#">&lt;</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+            </ul>
+        </nav>
+        </div>
+    </div>
+    <!-- modal that opens on click of view button -->
+    <div class="modal fade custom-modal" id="booking" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Booking OSA-9923B69307</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                
+                <div class="modal-body">
+                    <ul class="nav nav-tabs d-flex">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="info-tab-btn" data-bs-toggle="tab" href="#info-tab">Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="revision-tab-btn" data-bs-toggle="tab" href="#revision-tab">Revision</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="timeline-tab-btn" data-bs-toggle="tab" href="#timeline-tab">Timeline</a>
+                        </li>
+                        
+                        <!-- Print Button aligned to the right -->
+                        <li class="nav-item ms-auto">
+                            <button class="btn btn-primary" onclick="window.print()">
+                                <i class="bi bi-printer"></i> Print
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <!--main div-->
+                    <div class="tab-content p-3">
+                        <!--general-tab body div-->
+                        <div id="info-tab" class="tab-pane fade show active">
+                            <div class="booking-info p-3">
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Status:</div>
+                                    <div class="col-md-8"><span class="badge bg-success">New</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Source / OTA:</div>
+                                    <div class="col-md-8">Instant Booking Page</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Channel:</div>
+                                    <div class="col-md-8"><a href="#" id="CMTEST">CMTEST</a></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Reservation ID:</div>
+                                    <div class="col-md-8">OSA-9923B69307</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Booking ID:</div>
+                                    <div class="col-md-8">cf11dcfc-fcf1-459c-a828-21ae6016772b</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Revision ID:</div>
+                                    <div class="col-md-8">82005077-20ab-4fa5-818f-e1b4fef8295d</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">OTA Reservation ID:</div>
+                                    <div class="col-md-8">9923B69307</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Booked At:</div>
+                                    <div class="col-md-8">Mon, Jan 27, 2025</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Property:</div>
+                                    <div class="col-md-8"><a href="#" id="demo-btn">DEMO</a></div>
+                                </div>
+                            </div>
+                            
+                            <div class="checkin-details p-3">
+                                <h6>Check-in Details</h6>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Check-in Date:</div>
+                                    <div class="col-md-8">Wed, Jan 29, 2025</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Check-out Date:</div>
+                                    <div class="col-md-8">Thu, Jan 30, 2025</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Arrival Time:</div>
+                                    <div class="col-md-8">N/A</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Nights:</div>
+                                    <div class="col-md-8">1</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Rooms:</div>
+                                    <div class="col-md-8">3</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Occupancy:</div>
+                                    <div class="col-md-8">A: 4 | C: 0 | I: 0</div>
+                                </div>
+                            </div>
+                            
+                            <div class="checkin-details p-3">
+                                <h6>Customer</h6>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Name:</div>
+                                    <div class="col-md-8">Riyanga Wijesiri</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Email:</div>
+                                    <div class="col-md-8">riyangacw@gmail.com</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Phone:</div>
+                                    <div class="col-md-8">02589484005</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Language:</div>
+                                    <div class="col-md-8">N/A</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Country:</div>
+                                    <div class="col-md-8">N/A</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">City:</div>
+                                    <div class="col-md-8">HORANA</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Address:</div>
+                                    <div class="col-md-8">215SS, ILIMBA, 1</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Postal Code:</div>
+                                    <div class="col-md-8">12400</div>
+                                </div>
+                            </div>
+                            
+                            <!-- </div> -->
+                            <div class="p-3">
+                            <h6>Rooms</h6>
+                            <hr>
+                            <!-- Deluxe Room -->
+                            <div class="room">
+                                <div class="room-header" onclick="toggleRoomDetails('deluxeDetails', this)">
+                                    <div>
+                                        <i class="bi bi-chevron-right arrow"></i> <!-- Arrow Icon -->
+                                        <span>Deluxe</span>
+                                    </div>
+                                    <span class="price">100.00 USD</span>
+                                </div>
+                                <p><i class="bi bi-calendar"></i> Wed, Jan 29, 2025 - Thu, Jan 30, 2025</p>
+                                <div class="room-details" id="deluxeDetails">
+                                    
+                                    <table class="details-table">
+                                        <tr>
+                                            <td class="label">Price Breakdown</td>
+                                            <td class="colon">:</td>
+                                            <td class="value">Wed, Jan 29, 2025 | BB</td>
+                                            <td class="price">100.00 USD</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label"><strong>Subtotal</strong></td>
+                                            <td class="colon">:</td>
+                                            <td class="value"></td>
+                                            <td class="price"><strong>100.00 USD</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">Occupancy</td>
+                                            <td class="colon">:</td>
+                                            <td colspan="2" class="value">Adults: 1, Children: 0, Infants: 0</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">Meal Plan</td>
+                                            <td class="colon">:</td>
+                                            <td colspan="2" class="value">bed_and_breakfast</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">Policies</td>
+                                            <td class="colon">:</td>
+                                            <td colspan="2" class="value">Booking can be cancelled at any time</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>  <!--delux rooms divs ends-->
+                            
+                        </div> <!--main rooms divs ends-->
+                    
+                        <div class="p-3">
+                            <h6>Guarantee</h6>
+                            <hr>
+                            <i>No credit card is supplied with this booking</i>
+                        </div>
+                        <div class="p-3">
+                            <h6>Notes</h6>
+                            <hr>
+                            <i>Not Provided</i>
+                        </div>
+                        <div class="p-3">
+                            <h6>Booking Expenses</h6>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-4 text-end fw-bold">Total Amount:</div>
+                                <div class="col-md-8"> 310.00 USD</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 text-end fw-bold">Payment Method:</div>
+                                <div class="col-md-8"> Cash/Other</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 text-end fw-bold">Deposits:</div>
+                                <div class="col-md-8"> </div>
+                            </div>
+                            
+                        </div>
+                    </div><!--general-tab body div ends-->
+                </div><!-- main div ends-->
+                        
+                <div id="revision-tab" class="tab-pane fade">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center room-header" 
+                             onclick="toggleRoomDetails('revisionDetails', this)">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-chevron-right arrow"></i> <!-- Arrow Icon -->
+                                <div class="ms-2">
+                                    <strong>System ID:</strong> d82a07b8-a495-423b-866f-c5f3b87ff398<br>
+                                    <small>January 27th 2025, 23:32:19</small>
+                                </div>
+                                
+                            </div>
+                            <button class="btn btn-outline-success btn-sm">New</button>  <!-- Green Text on Right -->
+                        </div>
+                
+                        <div id="revisionDetails" class="card-body" style="display: none;">
+                            <!--general-tab body div-->
+                            <div id="info-tab" class="tab-pane fade show active">
+                                <div class="booking-info p-3">
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Status:</div>
+                                        <div class="col-md-8"><span class="badge bg-success">New</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Source / OTA:</div>
+                                        <div class="col-md-8">Instant Booking Page</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Channel:</div>
+                                        <div class="col-md-8"><a href="#" id="CMTEST">CMTEST</a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Reservation ID:</div>
+                                        <div class="col-md-8">OSA-9923B69307</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Booking ID:</div>
+                                        <div class="col-md-8">cf11dcfc-fcf1-459c-a828-21ae6016772b</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Revision ID:</div>
+                                        <div class="col-md-8">82005077-20ab-4fa5-818f-e1b4fef8295d</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">OTA Reservation ID:</div>
+                                        <div class="col-md-8">9923B69307</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Booked At:</div>
+                                        <div class="col-md-8">Mon, Jan 27, 2025</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Property:</div>
+                                        <div class="col-md-8"><a href="#" id="demo-btn">DEMO</a></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="checkin-details p-3">
+                                    <h6>Check-in Details</h6>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Check-in Date:</div>
+                                        <div class="col-md-8">Wed, Jan 29, 2025</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Check-out Date:</div>
+                                        <div class="col-md-8">Thu, Jan 30, 2025</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Arrival Time:</div>
+                                        <div class="col-md-8">N/A</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Nights:</div>
+                                        <div class="col-md-8">1</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Rooms:</div>
+                                        <div class="col-md-8">3</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Occupancy:</div>
+                                        <div class="col-md-8">A: 4 | C: 0 | I: 0</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="checkin-details p-3">
+                                    <h6>Customer</h6>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Name:</div>
+                                        <div class="col-md-8">Riyanga Wijesiri</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Email:</div>
+                                        <div class="col-md-8">riyangacw@gmail.com</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Phone:</div>
+                                        <div class="col-md-8">02589484005</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Language:</div>
+                                        <div class="col-md-8">N/A</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Country:</div>
+                                        <div class="col-md-8">N/A</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">City:</div>
+                                        <div class="col-md-8">HORANA</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Address:</div>
+                                        <div class="col-md-8">215SS, ILIMBA, 1</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end fw-bold">Postal Code:</div>
+                                        <div class="col-md-8">12400</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- </div> -->
+                                <div class="p-3">
+                                <h6>Rooms</h6>
+                                <hr>
+                                <!-- Deluxe Room -->
+                                <div class="room">
+                                    <div class="room-header" onclick="toggleRoomDetails('deluxeDetails', this)">
+                                        <div>
+                                            <i class="bi bi-chevron-right arrow"></i> <!-- Arrow Icon -->
+                                            <span>Deluxe</span>
+                                        </div>
+                                        <span class="price">100.00 USD</span>
+                                    </div>
+                                    <p><i class="bi bi-calendar"></i> Wed, Jan 29, 2025 - Thu, Jan 30, 2025</p>
+                                    <div class="room-details" id="deluxeDetails">
+                                        
+                                        <table class="details-table">
+                                            <tr>
+                                                <td class="label">Price Breakdown</td>
+                                                <td class="colon">:</td>
+                                                <td class="value">Wed, Jan 29, 2025 | BB</td>
+                                                <td class="price">100.00 USD</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label"><strong>Subtotal</strong></td>
+                                                <td class="colon">:</td>
+                                                <td class="value"></td>
+                                                <td class="price"><strong>100.00 USD</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label">Occupancy</td>
+                                                <td class="colon">:</td>
+                                                <td colspan="2" class="value">Adults: 1, Children: 0, Infants: 0</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label">Meal Plan</td>
+                                                <td class="colon">:</td>
+                                                <td colspan="2" class="value">bed_and_breakfast</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label">Policies</td>
+                                                <td class="colon">:</td>
+                                                <td colspan="2" class="value">Booking can be cancelled at any time</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>  <!--delux rooms divs ends-->
+                                
+                            </div> <!--main rooms divs ends-->
+                        
+                            <div class="p-3">
+                                <h6>Guarantee</h6>
+                                <hr>
+                                <i>No credit card is supplied with this booking</i>
+                            </div>
+                            <div class="p-3">
+                                <h6>Notes</h6>
+                                <hr>
+                                <i>Not Provided</i>
+                            </div>
+                            <div class="p-3">
+                                <h6>Booking Expenses</h6>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Total Amount:</div>
+                                    <div class="col-md-8"> 310.00 USD</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Payment Method:</div>
+                                    <div class="col-md-8"> Cash/Other</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Deposits:</div>
+                                    <div class="col-md-8"> </div>
+                                </div>
+                                
+                            </div>
+                        </div><!--general-tab body div ends-->
+                        </div>
+                    </div>
+                </div>
+                
+                        <div id="timeline-tab" class="tab-pane fade">
+                            <div class="container">
+                                <h4 class="mb-4">Booking OSA-9923B69307</h4>
+                                <div class="timeline">
+                                    <div class="row timeline-item">
+                                        <div class="col-md-4 text-end timeline-time">
+                                            <span>2025-01-27 <br> 23:32:19</span>
+                                        </div>
+                                        <div class="col-md-2 d-flex flex-column align-items-center">
+                                            <div class="timeline-icon"><i class="bi bi-check-circle-fill"></i></div>
+                                            <div style="width: 2px; height: 100px; background-color: #494b4d; margin-top: 5px;"></div>
+                                        </div>
+                                        
+                                        <div class="col-md-6 timeline-content">
+                                            <strong>Booking Created</strong><br>
+                                            <small>Revision ID: 82085077-20ab-4fa5-818f-e1b4fef8295d</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="row timeline-item">
+                                        <div class="col-md-4 text-end timeline-time">
+                                            <span>2025-01-27 <br> 23:32:19</span>
+                                        </div>
+                                        <div class="col-md-2 d-flex flex-column align-items-center">
+                                            <div class="timeline-icon"><i class="bi bi-envelope-fill"></i></div>
+                                            <div style="width: 2px; height: 100px; background-color: #494b4d; margin-top: 5px;"></div>
+                                        </div>
+                                        <div class="col-md-6 timeline-content">
+                                            <strong>Customer Email Notification Sent</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="row timeline-item">
+                                        <div class="col-md-4 text-end timeline-time">
+                                            <span>2025-01-27 <br> 23:32:19</span>
+                                        </div>
+                                        <div class="col-md-2 d-flex flex-column align-items-center">
+                                            <div class="timeline-icon"><i class="bi bi-link"></i></div>
+                                            <div style="width: 2px; height: 100px; background-color: #494b4d; margin-top: 5px;"></div>
+                                        </div>
+                                        <div class="col-md-6 timeline-content">
+                                            <strong>Web-hook sent</strong><br>
+                                            <small>URL: <a href="#">https://cmtest.citruspms.site/pms/channelmanager/roomsnet/</a></small><br>
+                                            <small>Is Success: Yes</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="row timeline-item">
+                                        <div class="col-md-4 text-end timeline-time">
+                                            <span>2025-01-27 <br> 23:32:19</span>
+                                        </div>
+                                        <div class="col-md-2 d-flex flex-column align-items-center">
+                                            <div class="timeline-icon"><i class="bi bi-rss-fill"></i></div>
+                                            <div style="width: 2px; height: 100px; background-color: #494b4d; margin-top: 5px;"></div>
+                                        </div>
+                                        <div class="col-md-6 timeline-content">
+                                            <strong>Booking Revision received via feed</strong><br>
+                                            <small>IP Address: 103.214.111.130</small><br>
+                                            <small>User: Citrus PMS (citruspms@gmail.com)</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="row timeline-item">
+                                        <div class="col-md-4 text-end timeline-time">
+                                            <span>2025-01-27 <br> 23:32:20</span>
+                                        </div>
+                                        <div class="col-md-2 d-flex flex-column align-items-center">
+                                            <div class="timeline-icon"><i class="bi bi-check-circle-fill"></i></div>
+                                            <div style="width: 2px; height: 100px; background-color: #494b4d; margin-top: 5px;"></div>
+                                        </div>
+                                        <div class="col-md-6 timeline-content">
+                                            <strong>Booking Revision is acknowledged</strong><br>
+                                            <small>Revision ID: 82085077-20ab-4fa5-818f-e1b4fef8295d</small><br>
+                                            <small>IP Address: 103.214.111.130</small><br>
+                                            <small>User: Citrus PMS (citruspms@gmail.com)</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="row timeline-item">
+                                        <div class="col-md-4 text-end timeline-time">
+                                            <span>2025-01-27 <br> 23:32:20</span>
+                                        </div>
+                                        <div class="col-md-2 d-flex flex-column align-items-center">
+                                            <div class="timeline-icon"><i class="bi bi-check-circle-fill"></i></div>
+                                            <div style="width: 2px; height: 100px; background-color: #494b4d; margin-top: 5px;"></div>
+                                        </div>
+                                        <div class="col-md-6 timeline-content">
+                                            <strong>Booking Revision is acknowledged</strong><br>
+                                            <small>Revision ID: 82085077-20ab-4fa5-818f-e1b4fef8295d</small><br>
+                                            <small>IP Address: 103.214.111.130</small><br>
+                                            <small>User: Citrus PMS (citruspms@gmail.com)</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>   <!--model body div ends-->
+                <div class="modal-footer">
+                    <button type="button" id="saveRoomOrder" class="btn btn-primary w-100">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CMTEST (edit) model -->
+    <div class="modal fade custom-small-modal" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Availability Rule</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="general-tab-btn" data-bs-toggle="tab" href="#general-tab">General Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="mapping-tab-btn" data-bs-toggle="tab" href="#mapping-tab">Mapping</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="channel-tab-btn" data-bs-toggle="tab" href="#channel-tab">Channel Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="readiness-tab-btn" data-bs-toggle="tab" href="#readiness-tab">Readiness Check</a>
+                        </li>
+                    </ul>
+    
+                    <!-- Content Sections -->
+                    <div class="tab-content p-3">
+                        <div id="general-tab" class="tab-pane fade">
+                            <p><strong>Id:</strong> c1bed4c7-3826-4edf-bfd2-08449b4740de</p>
+                            <p><strong>Title:</strong> <input type="text" class="w-50" placeholder="Title"></p>
+                    
+                            <p><strong>Default Currency:</strong>
+                                <select name="currency" id="currency">
+                                    <option value="usd">USD</option>
+                                    <option value="eur">EUR</option>
+                                    <option value="gbp">GBP</option>
+                                    <option value="inr">INR</option>
+                                </select>
+                            </p>
+                    
+                            <p><strong>Property Type:</strong>
+                                <label for="propertyType">Choose a property type:</label>
+                                <select name="propertyType" id="propertyType">
+                                    <option value="hotel">Hotel</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="resort">Resort</option>
+                                    <option value="villa">Villa</option>
+                                </select>
+                            </p>
+                    
+                            <p><strong>Billing Type:</strong> <input type="text" class="w-50" placeholder="Hotel" disabled></p>
+                        </div>
+                    
+                        <div id="mapping-tab" class="tab-pane fade">bbb</div>
+                        <div id="channel-tab" class="tab-pane fade">ccc</div>
+                        <div id="readiness-tab" class="tab-pane fade">ddd</div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary w-100">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- demo model -->
+    <div class="modal fade custom-small-modal" id="demo" tabindex="-1" aria-labelledby="demonLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Property</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                   demo
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary w-100">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../nav.html");
+        });
+        $(function(){
+        $("#footer").load("footer.html");
+        });
+    </script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="booking.js"></script>
+    </body>
+</html>

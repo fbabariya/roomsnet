@@ -1,0 +1,65 @@
+.room-header {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.room-details {
+    
+    display: none;
+    
+}
+.price {
+    font-weight: bold;
+}
+.arrow {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+.rotate {
+    transform: rotate(90deg);
+}
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.details-table td {
+    padding: 6px 10px;
+    vertical-align: top;
+}
+.details-table .label {
+    font-weight: bold;
+    white-space: nowrap;
+}
+.details-table .colon {
+    text-align: right;
+    width: 10px;
+}
+.details-table .value {
+    width: 100%;
+}
+
+
+.tab-pane {
+    display: none;
+}
+.tab-pane.active {
+    display: block;
+}
+
+/* css for timeline start*/
+.timeline-line {
+    width: 2px;
+    background-color: #494b4d;
+    flex-grow: 1; /* Makes it auto-expand */
+    min-height: 50px; /* Adjusts gap between icons */
+}
+
+.timeline-icon {
+    font-size: 1.5rem; /* Adjust icon size */
+    color: #007bff; /* Bootstrap primary color */
+}
+/* css for timeline start ends*/

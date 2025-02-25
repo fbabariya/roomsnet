@@ -1,0 +1,101 @@
+
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px;
+}
+
+.arrow-button {
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.calendar-table th, .calendar-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.room-category {
+    font-weight: bold;
+    background: #f1f1f1;
+}
+
+
+/* styles for inventory model of bulk update*/
+  /* Custom modal styles */
+  .modal.custom-modal .modal-dialog {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    max-width: 50%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.modal.custom-modal .modal-content {
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 0; /* Removes rounded corners */
+}
+
+/* Ensure the table is visible */
+.content {
+    margin-left: 50%; /* Adjust content to not overlap with modal */
+    padding: 20px;
+}
+
+.restriction-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd; /* Light separator */
+}
+
+.restriction-label {
+    flex-grow: 1; /* Ensures label expands */
+    margin-left: 18px; /* Adds spacing between checkbox and label */
+}
+
+.restriction-input {
+    width: 150px; /* Adjust width for uniformity */
+}
+
+.restriction-toggle {
+    width: 50px; /* Adjust width for toggle alignment */
+}
+
+/* Custom size for the smaller modal in availability rules */
+.modal.custom-small-modal .modal-dialog {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 400%;
+    max-width: 45%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    z-index: 1051; /* Ensure it appears above the main modal */
+}
+.modal.custom-small-modal .modal-content {
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 0;
+}

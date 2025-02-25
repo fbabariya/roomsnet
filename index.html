@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoomsNet Dashboard</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap Icons (Fix for missing icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- Page Header Area-->
+    <header id="header" class="header">
+        <!-- Navigation -->
+        <div id="nav-placeholder"></div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row g-4">
+            <!-- Left Column (Bookings + Announcements) -->
+            <div class="col-md-6">
+                <!-- Bookings Card -->
+                <div class="card shadow-sm p-3 mb-3">
+                    <h5>Booking Sources</h5>
+                    <div class="d-flex align-items-center">
+                        <div class="circle text-primary border border-primary rounded-circle d-flex align-items-center justify-content-center">
+                            <h4 class="mb-0">12</h4>
+                        </div>
+                        <div class="ms-3">
+                            <p class="mb-0"><i class="fas fa-globe"></i> Instant Booking Page</p>
+                            <p class="mb-0"><i class="fas fa-dollar-sign"></i> 4,850 USD | 100%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Announcements -->
+                <div class="card shadow-sm p-3">
+                    <h5>Announcements</h5>
+                    <h6 class="text-primary">Feb Update 🚀 (Feb 2025)</h6>
+                    <div class="announcements-card">
+                        <ul class="list-unstyled mt-2">
+                            <li><i class="fas fa-check-circle text-primary"></i> Improve logs for remove Rate Plan</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Improve logs for remove Room Type</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Add Deactivation reason and Logs</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Improved past date range logic in API</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Added Ctouvert channel</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Updated Airbnb Rate Plans</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Fixed Airbnb listings flickering</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Added more announcement updates...</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Additional logs for better debugging...</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column (Live Feed Events) -->
+            <div class="col-md-6">
+                <div class="card shadow-sm p-3">
+                    <!-- Heading & Filter in One Line -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Live Feed Events</h5>
+                        <div>
+                            <label for="event-filter" class="me-2">Filter:</label>
+                            <select name="event-filter" id="event-filter" class="form-select d-inline-block w-auto">
+                                <option value="all">All Events</option>
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Empty Events Message -->
+                    <div class="empty-box text-muted mt-3 text-center">
+                        <i class="fas fa-inbox fa-2x"></i>
+                        <p>No events in last 30 days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../nav.html");
+        });
+        $(function(){
+        $("#footer").load("footer.html");
+    });
+    </script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
