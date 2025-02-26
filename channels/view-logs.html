@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoomsNet Dashboard</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap Icons (Fix for missing icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../inventory/inventory.css">
+    <link rel="stylesheet" href="../bookings/booking.css"> <!--for arrow toggle logic-->
+</head>
+<body>
+
+    <!-- Page Header Area-->
+    <header id="header" class="header">
+        <!-- Navigation -->
+        <div id="nav-placeholder"></div>
+    </header>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <input type="text" class="form-control w-25" placeholder="Search">
+            <div>
+                <button class="btn btn-outline-secondary">Advanced Search</button>
+                <button class="btn btn-outline-secondary">Refresh</button>
+                <button class="btn btn-primary">Export</button>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                
+                    <th>Action</th>
+                    <th>Started At</th>
+                    <th>Finished At</th>
+                    <th>Execution time(ms)</th>
+                    <th>Result</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sync</td>
+                    <td>2025-02-26 02:30:47</td>
+                    <td>2025-02-26 02:30:47</td>
+                    <td>5</td>
+                    <td><i class="bi bi-record-circle-fill text-success"></i></td>
+                    <td class="border-0 p-0 background-color:transparent text-primary" data-bs-toggle="modal" data-bs-target="#view" id="#view-btn">View</td>
+                </tr>
+            </tbody>
+        </table>
+
+     <!-- view model -->
+     <div class="modal fade custom-small-modal" id="view" tabindex="-1" aria-labelledby="viewLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Channel Action View</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="booking-info">
+                        <div class="row">
+                            <div class="col-md-4 text-end">
+                                <label class="">Event:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="">Sync</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-end">
+                                <label class="">Started At:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="">2025-02-26 02:30:47:100</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-end">
+                                <label class="">Finished At:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="">2025-02-26 02:30:47:150</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-end">
+                                <label class="">Execution Time (ms):</label>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="">50</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-end">
+                                <label class="">Result:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <button class="btn text-success border-success btn-sm p-1">Success</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-end">
+                                <label class="">Channel:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <a class="">CMTEST</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-end">
+                                <label class="">User:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="">System</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-end">
+                                <label class="">Linked Tasks:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <a class="">878ef68d-3121-46d1-aa3d-a5f50e3caa45</a>
+                            </div>
+                        </div>
+                    </div><!--booking info div end-->
+                    <div class="room">
+                        <div class="room-header" onclick="toggleRoomDetails('deluxeDetails', this)">
+                            <div>
+                            <i class="bi bi-chevron-right arrow"></i> <!-- Arrow Icon -->
+                            <span>Deluxe</span>
+                            </div>
+                            <span class="price">100.00 USD</span>
+                        </div>
+                    </div>
+                </div>  <!--modal body div end-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary w-100">Save</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- end view modal -->
+
+    <div class="d-flex felx-row justify-content-end">
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled"><a class="page-link" href="#">&lt;</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+            </ul>
+        </nav>
+        </div>
+    </div>
+    
+    <script src="../booking.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../nav.html");
+        });
+        $(function(){
+        $("#footer").load("footer.html");
+    });
+    </script>
+
+</body>
+</html>

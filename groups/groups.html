@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../inventory/inventory.css">
     <!-- Bootstrap Icons (Fix for missing icons) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -52,7 +53,7 @@
                                 Actions
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit" id="#edit-btn"><i class="fas fa-edit me-2"></i> Edit</a></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Remove</a></li>
                             </ul>
                         </div>
@@ -63,6 +64,55 @@
                 <!-- Add more rows here -->
             </tbody>
         </table>
+
+        <div class="modal fade custom-small-modal" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Property Group</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Tabs Navigation -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="edit-tab-btn" data-bs-toggle="tab" href="#edit-tab">Edit</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="connected-tab-btn" data-bs-toggle="tab" href="#connected-tab">Connected Properties</a>
+                            </li>
+                        </ul>
+        
+                        <!-- Tab Content -->
+                        <div class="tab-content mt-3">
+                            <!-- Edit Tab -->
+                            <div class="tab-pane fade show active" id="edit-tab">
+                                <div class="row">
+                                    <div class="col-md-4 text-end">
+                                        <label class="">Title:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="" placeholder="User Group"></input>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Connected Properties Tab -->
+                            <div class="tab-pane fade" id="connected-tab">
+                                <p class="text-muted">No connected properties yet.</p>
+                            </div>
+                        </div> 
+                    </div><!-- End modal-body -->
+        
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary w-100">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+
+        
         <div class="d-flex felx-row justify-content-end">
         <nav>
             <ul class="pagination justify-content-center">
@@ -78,15 +128,16 @@
         </div>
     </div>
     
-    <script>
-        $(function(){
-            $("#nav-placeholder").load("../nav.html");
-            });
-            $(function(){
-            $("#footer").load("footer.html");
-        });
-        </script>
+    
         <!-- Bootstrap 5 JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            $(function(){
+                $("#nav-placeholder").load("../nav.html");
+                });
+                $(function(){
+                $("#footer").load("footer.html");
+            });
+            </script>
     </body>
 </html>

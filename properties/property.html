@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../inventory/inventory.css">
+    <link rel="stylesheet" href="../roomsAndRates/roomsRates.css">
     <!-- Bootstrap Icons (Fix for missing icons) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -52,8 +54,8 @@
                                 Actions
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-dollar-sign me-2"></i> Create Rate</a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit" id="#edit-btn"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#create_rate" id="#create-rate-btn"><i class="fas fa-dollar-sign me-2"></i> Create Rate</a></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Remove</a></li>
                             </ul>
                         </div>
@@ -64,6 +66,282 @@
                 <!-- Add more rows here -->
             </tbody>
         </table>
+
+        
+    <!-- edit model -->
+    <div class="modal fade custom-small-modal" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Room</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="edit-tab-btn" data-bs-toggle="tab" href="#edit-tab">Edit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="content-tab-btn" data-bs-toggle="tab" href="#content-tab">Content</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="settings-tab-btn" data-bs-toggle="tab" href="#settings-tab">Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="policies-tab-btn" data-bs-toggle="tab" href="#policies-tab">Policies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tax-sets-tab-btn" data-bs-toggle="tab" href="#tax-sets-tab">Tax Sets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tax-tab-btn" data-bs-toggle="tab" href="#tax-tab">Taxes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="webhooks-tab-btn" data-bs-toggle="tab" href="#webhooks-tab">Webhooks</a>
+                        </li>
+                    </ul>
+                    <!--main div-->
+                    <div class="tab-content p-3">
+                        <!-- General Tab Content -->
+                        <div id="edit-tab" class="tab-pane fade show active">
+                            <div class="booking-info p-3">
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="">ID:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p class="">OSA-9923B69307</p>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Title:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="property" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Default Currency:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-select">
+                                            <option>US Dollar (USD)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Property Type:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select name="title" class="form-select">
+                                            <option value="">Hotel</option>
+                                            <option value="Deluxe">Deluxe</option>
+                                            <option value="Penthouse">Penthouse</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Billing Type:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="property" class="form-control" placeholder="Hotel" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="m-2">
+                                <h6>Contacts</h1><hr>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4 text-end">
+                                    <label for="email" class="form-label">Email:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="email" id="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4 text-end">
+                                    <label for="phone" class="form-label">Phone:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="phone" id="phone" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4 text-end">
+                                    <label for="website" class="form-label">Website:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="website" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="m-2">
+                                <h6>Location</h1><hr>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4 text-end">
+                                    <label class="form-label">Country:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="form-select" id="countryDropdown" onchange="updateTimezone()">
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="IN">India</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="CN">China</option>
+                                        <option value="SG">Singapore</option>
+                                        <option value="AE">United Arab Emirates</option>
+                                        <option value="DE">Germany</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-2">
+                                <div class="col-md-4 text-end">
+                                    <label class="form-label">Time Zone:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="form-select" id="timezoneDropdown">
+                                        <!-- Time zones will be populated dynamically -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4 text-end">
+                                    <label for="postal-code" class="form-label">Postal Code:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="postal-code" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4 text-end">
+                                    <label for="state-region" class="form-label">State / Region:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="state-region" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4 text-end">
+                                    <label for="city" class="form-label">City:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="city" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-4 text-end">
+                                    <label for="address" class="form-label">Address:</label>
+                                </div>
+                                <div class="col-md-8 mb-2">
+                                    <input type="text" id="address" class="form-control" placeholder="">
+                                </div>
+                                <div class="col-md-4 text-end"></div>
+                                <div class="col-md-8">
+                                    <button class="btn btn-primary form-control" onclick="showLatLngFields()"> <i class="bi bi-geo-alt"></i> Find location</button>
+                                </div>
+                            </div>
+                            <!-- Hidden Latitude & Longitude Fields -->
+                            <div class="row mb-2" id="latLngFields" style="display: none;">
+                                <div class="col-md-4 text-end">
+                                    <label for="latitude" class="form-label">Latitude:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="latitude" class="form-control" placeholder="Latitude">
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <label for="longitude" class="form-label">Longitude:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="longitude" class="form-control" placeholder="Longitude">
+                                </div>
+                            </div>
+
+
+                        </div>  <!-- edit table div end -->
+                    
+                    <!-- Content Tab Content -->
+                    <div id="content-tab" class="tab-pane fade">
+                        <div class="row">
+                            <div class="col-md-4 mb-2 text-end">Property Logo:</div>
+                            <div class="col-md-8 mb-2">
+                                <!-- Image Preview -->
+                                <img id="logoPreview" src="default-logo.png" alt="Property Logo" class="img-fluid mb-2" style="max-width: 150px; height: auto; border: 1px solid #ccc; padding: 5px;">
+                        
+                                <!-- File Input -->
+                                <input type="file" class="form-control" id="logoUpload" accept="image/*" onchange="previewLogo()">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-end">Description: </div>
+                            <div class="col-md-8">
+                            <textarea class="form-control mb-2" rows="5" placeholder="Description"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 text-end">
+                                <label for="facilities" class="form-label">Facilities:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" id="facilities" class="form-control" placeholder="facilities">
+                            </div>
+                        </div>
+                       
+                        <h6>Photos:</h1>
+                            <hr>
+                        <div class="image-upload-wrapper" onclick="document.getElementById('imageInput').click();">
+                            <p class="upload-text">Click or Drag & Drop to Upload Images</p>
+                            <input type="file" id="imageInput" accept="image/*" multiple onchange="previewImages(event)">
+                        </div>
+                            
+                        <div class="image-preview-container" id="imagePreviewContainer"></div>
+                              
+                    </div>  <!--content-tab end -->
+                    <!-- Settings Tab -->
+                    <div id="settings-tab" class="tab-pane fade">
+                        <div class="row">
+                        <p>Settings content goes here...</p></div>
+                    </div>
+
+                    <!-- Policies Tab -->
+                    <div id="policies-tab" class="tab-pane fade">
+                        <p>Policies content goes here...</p>
+                    </div>
+
+                    <!-- Tax Sets Tab -->
+                    <div id="tax-sets-tab" class="tab-pane fade">
+                        <p>Tax Sets content goes here...</p>
+                    </div>
+
+                    <!-- Taxes Tab -->
+                    <div id="tax-tab" class="tab-pane fade">
+                        <p>Taxes content goes here...</p>
+                    </div>
+
+                    <!-- Webhooks Tab -->
+                    <div id="webhooks-tab" class="tab-pane fade">
+                        <p>Webhooks content goes here...</p>
+                    </div>
+                    
+                </div>  <!-- all tab main div ends -->
+                </div>  <!--modal body div end-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary w-100">Save</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- end modal -->
         <div class="d-flex felx-row justify-content-end">
         <nav>
             <ul class="pagination justify-content-center">
@@ -78,6 +356,10 @@
         </nav>
         </div>
     </div>
+
+
+    <script src="property.js"></script>
+    <script src="/roomsAndRates/roomsRates.js"></script>
     <script>
         $(function(){
             $("#nav-placeholder").load("../nav.html");
