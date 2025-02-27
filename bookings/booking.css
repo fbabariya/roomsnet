@@ -8,9 +8,7 @@
 }
 
 .room-details {
-    
     display: none;
-    
 }
 .price {
     font-weight: bold;
@@ -19,30 +17,9 @@
     transition: transform 0.3s ease;
     display: inline-block;
 }
-.rotate {
+.arrow.rotate {
     transform: rotate(90deg);
 }
-.details-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-.details-table td {
-    padding: 6px 10px;
-    vertical-align: top;
-}
-.details-table .label {
-    font-weight: bold;
-    white-space: nowrap;
-}
-.details-table .colon {
-    text-align: right;
-    width: 10px;
-}
-.details-table .value {
-    width: 100%;
-}
-
-
 .tab-pane {
     display: none;
 }

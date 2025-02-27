@@ -37,20 +37,20 @@
             <thead class="table-light">
                 <tr>
                 
-                    <th>Action</th>
-                    <th>Started At</th>
-                    <th>Finished At</th>
+                    <th>Task</th>
+                    <th>Received At</th>
+                    <th>Waiting time(ms)</th>
                     <th>Execution time(ms)</th>
-                    <th>Result</th>
+                    <th>Is Success</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Sync</td>
+                    <td>Property.UpdateDate</td>
                     <td>2025-02-26 02:30:47</td>
-                    <td>2025-02-26 02:30:47</td>
-                    <td>5</td>
+                    <td>247</td>
+                    <td>54</td>
                     <td><i class="bi bi-record-circle text-success"></i></td>
                     <td class="border-0 p-0 background-color:transparent text-primary" data-bs-toggle="modal" data-bs-target="#view" id="#view-btn">View</td>
                 </tr>
@@ -66,86 +66,75 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="booking-info">
-                        <div class="row">
-                            <div class="col-md-4 text-end">
-                                <label class="">Event:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p class="">Sync</p>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-4 text-end fw-bold">
+                            <label class="">Task ID:</label>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 text-end">
-                                <label class="">Started At:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p class="">2025-02-26 02:30:47:100</p>
-                            </div>
+                        <div class="col-md-8">
+                            <p class="d-inline me-2" id="copy-text">7fb0c55a-4af4-44c5-bbcd-c92d6286f940</p>
+                            <i class="bi bi-clipboard cursor-pointer text-primary" id="copy-btn"></i>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 text-end">
-                                <label class="">Finished At:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p class="">2025-02-26 02:30:47:150</p>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-end fw-bold">
+                            <label class="">Task:</label>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 text-end">
-                                <label class="">Execution Time (ms):</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p class="">50</p>
-                            </div>
+                        <div class="col-md-8">
+                            <p class="">Property.UpdateDate</p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 text-end">
-                                <label class="">Result:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <button class="btn text-success border-success btn-sm p-1">Success</button>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-end fw-bold">
+                            <label class="">User:</label>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 text-end">
-                                <label class="">Channel:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <a class="">CMTEST</a>
-                            </div>
+                        <div class="col-md-8">
+                            <p class="">System</p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 text-end">
-                                <label class="">User:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p class="">System</p>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-end fw-bold">
+                            <label class="">Execution Result:</label>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 text-end">
-                                <label class="">Linked Tasks:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <a class="">878ef68d-3121-46d1-aa3d-a5f50e3caa45</a>
-                            </div>
+                        <div class="col-md-8">
+                            <p class="">TRUE</p>
                         </div>
-                    </div><!--booking info div end-->
-                    <div class="room">
-                        <div class="room-header" onclick="toggleRoomDetails('deluxeDetails', this)">
-                            <div>
-                            <i class="bi bi-chevron-right arrow"></i> <!-- Arrow Icon -->
-                            <span>Deluxe</span>
-                            </div>
-                            <span class="price">100.00 USD</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-end fw-bold">
+                            <label class="">Received At:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="">2025-02-25 02:30:46:900</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-end fw-bold">
+                            <label class="">Executed At:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="">2025-02-25 02:30:46:900</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-end fw-bold">
+                            <label class="">Finished At:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="">2025-02-25 02:30:46:900</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-end fw-bold">
+                            <label class="">Channel Syncs:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <a class=""><i class="bi bi-record-circle text-success"></i> CMTEST</a>
                         </div>
                     </div>
                 </div>  <!--modal body div end-->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary w-100">Save</button>
                 </div>
-            
             </div>
         </div>
     </div>

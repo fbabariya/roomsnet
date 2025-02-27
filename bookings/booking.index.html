@@ -19,7 +19,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-
     <!-- Page Header Area-->
     <header id="header" class="header">
         <!-- Navigation -->
@@ -59,70 +58,40 @@
                     <td>3</td>
                     <td><i class="fas fa-check-circle text-success"></i></td>
                     <td>310.00 USD</td>
-                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#booking" class="text-primary">View</a></td>
+                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#booking" class="text-primary text-decoration-none">View</a></td>
                 </tr>
-                <tr>
-                    <td><span class="badge bg-danger">New</span></td>
-                    <td>OSA-29E2A7B63D</td>
-                    <td>DEMO</td>
-                    <td>HETTI VIDANA RALALAGE Wijesiri</td>
-                    <td>Jan 20, 2025 → Jan 23, 2025</td>
-                    <td>1</td>
-                    <td><i class="fas fa-check-circle text-success"></i></td>
-                    <td>300.00 USD</td>
-                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#booking" class="text-primary">View</a></td>
-                </tr>
-                <!-- Add more rows here -->
             </tbody>
         </table>
-        <div class="d-flex felx-row justify-content-end">
-        <nav>
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#">&lt;</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-            </ul>
-        </nav>
-        </div>
-    </div>
-    <!-- modal that opens on click of view button -->
-    <div class="modal fade custom-modal" id="booking" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Booking OSA-9923B69307</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                
-                <div class="modal-body">
-                    <ul class="nav nav-tabs d-flex">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="info-tab-btn" data-bs-toggle="tab" href="#info-tab">Info</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="revision-tab-btn" data-bs-toggle="tab" href="#revision-tab">Revision</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="timeline-tab-btn" data-bs-toggle="tab" href="#timeline-tab">Timeline</a>
-                        </li>
-                        
-                        <!-- Print Button aligned to the right -->
-                        <li class="nav-item ms-auto">
-                            <button class="btn btn-primary" onclick="window.print()">
-                                <i class="bi bi-printer"></i> Print
-                            </button>
-                        </li>
-                    </ul>
+        <!-- modal that opens on click of view button -->
+        <div class="modal fade custom-modal" id="booking" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Booking OSA-9923B69307</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
                     
-                    <!--main div-->
-                    <div class="tab-content p-3">
-                        <!--general-tab body div-->
-                        <div id="info-tab" class="tab-pane fade show active">
-                            <div class="booking-info p-3">
+                    <div class="modal-body">
+                        <ul class="nav nav-tabs d-flex">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="info-tab-btn" data-bs-toggle="tab" href="#info-tab">Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="revision-tab-btn" data-bs-toggle="tab" href="#revision-tab">Revision</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="timeline-tab-btn" data-bs-toggle="tab" href="#timeline-tab">Timeline</a>
+                            </li>
+                            
+                            <!-- Print Button aligned to the right -->
+                            <li class="nav-item ms-auto">
+                                <button class="btn btn-primary" onclick="window.print()">
+                                    <i class="bi bi-printer"></i> Print
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="tab-content p-3">
+                            <div id="info-tab" class="tab-pane fade show active">
                                 <div class="row">
                                     <div class="col-md-4 text-end fw-bold">Status:</div>
                                     <div class="col-md-8"><span class="badge bg-success">New</span></div>
@@ -159,9 +128,6 @@
                                     <div class="col-md-4 text-end fw-bold">Property:</div>
                                     <div class="col-md-8"><a href="#" id="demo-btn">DEMO</a></div>
                                 </div>
-                            </div>
-                            
-                            <div class="checkin-details p-3">
                                 <h6>Check-in Details</h6>
                                 <hr>
                                 <div class="row">
@@ -188,9 +154,6 @@
                                     <div class="col-md-4 text-end fw-bold">Occupancy:</div>
                                     <div class="col-md-8">A: 4 | C: 0 | I: 0</div>
                                 </div>
-                            </div>
-                            
-                            <div class="checkin-details p-3">
                                 <h6>Customer</h6>
                                 <hr>
                                 <div class="row">
@@ -225,213 +188,6 @@
                                     <div class="col-md-4 text-end fw-bold">Postal Code:</div>
                                     <div class="col-md-8">12400</div>
                                 </div>
-                            </div>
-                            
-                            <!-- </div> -->
-                            <div class="p-3">
-                            <h6>Rooms</h6>
-                            <hr>
-                            <!-- Deluxe Room -->
-                            <div class="room">
-                                <div class="room-header" onclick="toggleRoomDetails('deluxeDetails', this)">
-                                    <div>
-                                        <i class="bi bi-chevron-right arrow"></i> <!-- Arrow Icon -->
-                                        <span>Deluxe</span>
-                                    </div>
-                                    <span class="price">100.00 USD</span>
-                                </div>
-                                <p><i class="bi bi-calendar"></i> Wed, Jan 29, 2025 - Thu, Jan 30, 2025</p>
-                                <div class="room-details" id="deluxeDetails">
-                                    
-                                    <table class="details-table">
-                                        <tr>
-                                            <td class="label">Price Breakdown</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">Wed, Jan 29, 2025 | BB</td>
-                                            <td class="price">100.00 USD</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="label"><strong>Subtotal</strong></td>
-                                            <td class="colon">:</td>
-                                            <td class="value"></td>
-                                            <td class="price"><strong>100.00 USD</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="label">Occupancy</td>
-                                            <td class="colon">:</td>
-                                            <td colspan="2" class="value">Adults: 1, Children: 0, Infants: 0</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="label">Meal Plan</td>
-                                            <td class="colon">:</td>
-                                            <td colspan="2" class="value">bed_and_breakfast</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="label">Policies</td>
-                                            <td class="colon">:</td>
-                                            <td colspan="2" class="value">Booking can be cancelled at any time</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>  <!--delux rooms divs ends-->
-                            
-                        </div> <!--main rooms divs ends-->
-                    
-                        <div class="p-3">
-                            <h6>Guarantee</h6>
-                            <hr>
-                            <i>No credit card is supplied with this booking</i>
-                        </div>
-                        <div class="p-3">
-                            <h6>Notes</h6>
-                            <hr>
-                            <i>Not Provided</i>
-                        </div>
-                        <div class="p-3">
-                            <h6>Booking Expenses</h6>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-4 text-end fw-bold">Total Amount:</div>
-                                <div class="col-md-8"> 310.00 USD</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 text-end fw-bold">Payment Method:</div>
-                                <div class="col-md-8"> Cash/Other</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 text-end fw-bold">Deposits:</div>
-                                <div class="col-md-8"> </div>
-                            </div>
-                            
-                        </div>
-                    </div><!--general-tab body div ends-->
-                </div><!-- main div ends-->
-                        
-                <div id="revision-tab" class="tab-pane fade">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center room-header" 
-                             onclick="toggleRoomDetails('revisionDetails', this)">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-chevron-right arrow"></i> <!-- Arrow Icon -->
-                                <div class="ms-2">
-                                    <strong>System ID:</strong> d82a07b8-a495-423b-866f-c5f3b87ff398<br>
-                                    <small>January 27th 2025, 23:32:19</small>
-                                </div>
-                                
-                            </div>
-                            <button class="btn btn-outline-success btn-sm">New</button>  <!-- Green Text on Right -->
-                        </div>
-                
-                        <div id="revisionDetails" class="card-body" style="display: none;">
-                            <!--general-tab body div-->
-                            <div id="info-tab" class="tab-pane fade show active">
-                                <div class="booking-info p-3">
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Status:</div>
-                                        <div class="col-md-8"><span class="badge bg-success">New</span></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Source / OTA:</div>
-                                        <div class="col-md-8">Instant Booking Page</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Channel:</div>
-                                        <div class="col-md-8"><a href="#" id="CMTEST">CMTEST</a></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Reservation ID:</div>
-                                        <div class="col-md-8">OSA-9923B69307</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Booking ID:</div>
-                                        <div class="col-md-8">cf11dcfc-fcf1-459c-a828-21ae6016772b</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Revision ID:</div>
-                                        <div class="col-md-8">82005077-20ab-4fa5-818f-e1b4fef8295d</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">OTA Reservation ID:</div>
-                                        <div class="col-md-8">9923B69307</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Booked At:</div>
-                                        <div class="col-md-8">Mon, Jan 27, 2025</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Property:</div>
-                                        <div class="col-md-8"><a href="#" id="demo-btn">DEMO</a></div>
-                                    </div>
-                                </div>
-                                
-                                <div class="checkin-details p-3">
-                                    <h6>Check-in Details</h6>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Check-in Date:</div>
-                                        <div class="col-md-8">Wed, Jan 29, 2025</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Check-out Date:</div>
-                                        <div class="col-md-8">Thu, Jan 30, 2025</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Arrival Time:</div>
-                                        <div class="col-md-8">N/A</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Nights:</div>
-                                        <div class="col-md-8">1</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Rooms:</div>
-                                        <div class="col-md-8">3</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Occupancy:</div>
-                                        <div class="col-md-8">A: 4 | C: 0 | I: 0</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="checkin-details p-3">
-                                    <h6>Customer</h6>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Name:</div>
-                                        <div class="col-md-8">Riyanga Wijesiri</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Email:</div>
-                                        <div class="col-md-8">riyangacw@gmail.com</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Phone:</div>
-                                        <div class="col-md-8">02589484005</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Language:</div>
-                                        <div class="col-md-8">N/A</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Country:</div>
-                                        <div class="col-md-8">N/A</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">City:</div>
-                                        <div class="col-md-8">HORANA</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Address:</div>
-                                        <div class="col-md-8">215SS, ILIMBA, 1</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 text-end fw-bold">Postal Code:</div>
-                                        <div class="col-md-8">12400</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- </div> -->
-                                <div class="p-3">
                                 <h6>Rooms</h6>
                                 <hr>
                                 <!-- Deluxe Room -->
@@ -445,52 +201,47 @@
                                     </div>
                                     <p><i class="bi bi-calendar"></i> Wed, Jan 29, 2025 - Thu, Jan 30, 2025</p>
                                     <div class="room-details" id="deluxeDetails">
-                                        
-                                        <table class="details-table">
-                                            <tr>
-                                                <td class="label">Price Breakdown</td>
-                                                <td class="colon">:</td>
-                                                <td class="value">Wed, Jan 29, 2025 | BB</td>
-                                                <td class="price">100.00 USD</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label"><strong>Subtotal</strong></td>
-                                                <td class="colon">:</td>
-                                                <td class="value"></td>
-                                                <td class="price"><strong>100.00 USD</strong></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label">Occupancy</td>
-                                                <td class="colon">:</td>
-                                                <td colspan="2" class="value">Adults: 1, Children: 0, Infants: 0</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label">Meal Plan</td>
-                                                <td class="colon">:</td>
-                                                <td colspan="2" class="value">bed_and_breakfast</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label">Policies</td>
-                                                <td class="colon">:</td>
-                                                <td colspan="2" class="value">Booking can be cancelled at any time</td>
-                                            </tr>
-                                        </table>
+                                        <!-- Price Breakdown -->
+                                        <div class="row">
+                                            <div class="col-md-4 text-end fw-bold">Price Breakdown:</div>
+                                            <div class="col-md-4">Wed, Jan 29, 2025 | BB</div>
+                                            <div class="col-md-4 fw-bold text-end">100.00 USD</div>
+                                        </div>
+
+                                        <!-- Subtotal -->
+                                        <div class="row mt-2">
+                                            <div class="col-md-4 text-end fw-bold">Subtotal:</div>
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-4 fw-bold text-end">100.00 USD</div>
+                                        </div>
+
+                                        <!-- Occupancy -->
+                                        <div class="row mt-2">
+                                            <div class="col-md-4 text-end fw-bold">Occupancy:</div>
+                                            <div class="col-md-8">Adults: 1, Children: 0, Infants: 0</div>
+                                        </div>
+
+                                        <!-- Meal Plan -->
+                                        <div class="row mt-2">
+                                            <div class="col-md-4 text-end fw-bold">Meal Plan:</div>
+                                            <div class="col-md-8">bed_and_breakfast</div>
+                                        </div>
+
+                                        <!-- Policies -->
+                                        <div class="row mt-2">
+                                            <div class="col-md-4 text-end fw-bold">Policies:</div>
+                                            <div class="col-md-8">Booking can be cancelled at any time</div>
+                                        </div>
                                     </div>
                                 </div>  <!--delux rooms divs ends-->
-                                
-                            </div> <!--main rooms divs ends-->
-                        
-                            <div class="p-3">
                                 <h6>Guarantee</h6>
                                 <hr>
                                 <i>No credit card is supplied with this booking</i>
-                            </div>
-                            <div class="p-3">
+                                
                                 <h6>Notes</h6>
                                 <hr>
                                 <i>Not Provided</i>
-                            </div>
-                            <div class="p-3">
+                                
                                 <h6>Booking Expenses</h6>
                                 <hr>
                                 <div class="row">
@@ -505,15 +256,33 @@
                                     <div class="col-md-4 text-end fw-bold">Deposits:</div>
                                     <div class="col-md-8"> </div>
                                 </div>
-                                
-                            </div>
-                        </div><!--general-tab body div ends-->
-                        </div>
-                    </div>
-                </div>
-                
-                        <div id="timeline-tab" class="tab-pane fade">
-                            <div class="container">
+                            </div><!--info-tab end-->
+
+                            <div id="revision-tab" class="tab-pane fade">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center room-header"
+                                         onclick="toggleRoomDetails('revision-details', this)">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-chevron-right arrow"></i> <!-- Arrow Icon -->
+                                            <div class="ms-2">
+                                                <strong>System ID:</strong> d82a07b8-a495-423b-866f-c5f3b87ff398<br>
+                                                <small>January 27th 2025, 23:32:19</small>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-outline-success btn-sm">New</button>  
+                                    </div>
+        
+                                    <!-- Hidden details section -->
+                                    <div id="revision-details" class="p-3" style="display: none;">
+                                        <p><strong>Revision Details:</strong></p>
+                                        <div id="revision-content">
+                                            <!-- Content from info-tab will be displayed here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--revision-tab end-->
+
+                            <div id="timeline-tab" class="tab-pane fade">
                                 <h4 class="mb-4">Booking OSA-9923B69307</h4>
                                 <div class="timeline">
                                     <div class="row timeline-item">
@@ -605,101 +374,694 @@
                                             <small>User: Citrus PMS (citruspms@gmail.com)</small>
                                         </div>
                                     </div>
+                                </div>
+                            </div><!--timeline-tab end-->
 
+                        </div><!--tab-content-->
+                    </div><!--model-body ends-->
+                </div>
+            </div>
+        </div><!--model booking end-->
+
+        <!-- CMTEST (edit) model -->
+        <div class="modal fade custom-small-modal" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Room</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="general-tab-btn" data-bs-toggle="tab" href="#general-tab">General</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="mapping-tab-btn" data-bs-toggle="tab" href="#mapping-tab">Mapping</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="channel-setting-tab-btn" data-bs-toggle="tab" href="#channel-tab">Channel Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="readiness-tab-btn" data-bs-toggle="tab" href="#readiness-tab">Readiness Check</a>
+                            </li>
+                        </ul>
+                        <!--main div-->
+                        <div class="tab-content">
+                            <!-- General Tab Content -->
+                            <div id="general-tab" class="tab-pane fade show active">
+                                <div class="booking-info p-3">
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="">ID:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p class="">OSA-9923B69307</p>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Channel:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p class="form-control-plaintext">Instant Booking Page</p>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Group:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" name="property" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Title:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" name="property" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Properties:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select name="title" class="form-select">
+                                                <option value="">Select Title</option>
+                                                <option value="Deluxe">Deluxe</option>
+                                                <option value="Penthouse">Penthouse</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Currency:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select name="currency" class="form-select">
+                                                <option value="Auto">Auto</option>
+                                                <option value="USD">US Dollar (USD)</option>
+                                                <option value="EUR">Euro (EUR)</option>
+                                                <option value="GBP">British Pound (GBP)</option>
+                                                <option value="INR">Indian Rupee (INR)</option>
+                                                <option value="JPY">Japanese Yen (JPY)</option>
+                                                <option value="AUD">Australian Dollar (AUD)</option>
+                                                <option value="CAD">Canadian Dollar (CAD)</option>
+                                                <option value="SGD">Singapore Dollar (SGD)</option>
+                                                <option value="CNY">Chinese Yuan (CNY)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Booking Engine Link:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <a href="#" id="CMTEST">https://ibe.channex.io/cmtest</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="m-2">
+                                    <h6>Connection Settings</h1><hr>
+                                </div>
+                                <div class="row mb-2 align-items-center">
+                                    <div class="col-md-4 text-end">
+                                        <label for="slug" class="form-label">Slug Label:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="slug" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-2 align-items-center">
+                                    <div class="col-md-4 text-end">
+                                        <label for="Send" class="form-label">Send Booking Notification Email:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="Send" class="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2 align-items-center">
+                                    <div class="col-md-4 text-end">
+                                        <label for="credit-card" class="form-label">Request Credit Card:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="credit-card" class="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2 align-items-center">
+                                    <div class="col-md-4 text-end">
+                                        <label for="hide-logo" class="form-label">Hide Logo:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="hide-logo" class="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2 align-items-center">
+                                    <div class="col-md-4 text-end">
+                                        <label for="hide-title" class="form-label">Hide Title:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="hide-title" class="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2 align-items-center">
+                                    <div class="col-md-4 text-end">
+                                        <label for="billing" class="form-label">Billing Info is required:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="billing" class="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2 align-items-center">
+                                    <div class="col-md-4 text-end">
+                                        <label for="match" class="form-label">Exact Match:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="match" class="">
+                                    </div>
+                                </div>
+                                <div class="d-flex felx-row justify-content-end">
+                                    <button class="btn btn-outline-secondary">Test Connection</button>
+                                </div>
+                            </div>  <!-- general table div end -->
+                        <!-- Content Tab Content -->
+                        <div id="mapping-tab" class="tab-pane fade">
+                            <div class="d-flex flex-row justify-content-end">
+                                <button class="m-2 border-0 bg-transparent text-primary p-0">Refresh</button>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="select"><label class="ps-2">Select all</label>
+                                <div class="col-12">
+                                <strong class="fw-bold">Deluxe</strong>
+                                <div class="ps-2">
+                                    <input type="checkbox" name="select" checked><h7 class="ps-2">BB</h7><i class="bi bi-person"></i>1<br />
+                                    <input type="checkbox" name="select" checked><h7 class="ps-2">BB</h7><i class="bi bi-person"></i>2
+                                </div>
+                                </div>
+                                <strong class="fw-bold">Super Deluxe</strong>
+                                <div class="ps-2">
+                                    <input type="checkbox" name="select" checked><h7 class="ps-2">BB</h7><i class="bi bi-person"></i>1<br />
+                                    <input type="checkbox" name="select" checked><h7 class="ps-2">BB</h7><i class="bi bi-person"></i>2
+                                </div>
+                                <strong class="fw-bold">Superior</strong>
+                                <div class="ps-2">
+                                    <input type="checkbox" name="select" checked><h7 class="ps-2">BB</h7><i class="bi bi-person"></i>1<br />
+                                    <input type="checkbox" name="select" checked><h7 class="ps-2">BB</h7><i class="bi bi-person"></i>2<br />
+                                    <input type="checkbox" name="select" checked><h7 class="ps-2">BB</h7><i class="bi bi-person"></i>3<br />
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div id="channel-tab" class="tab-pane fade">
+                            <div class="channel p-3">
+                                <h6>Derived Rates Settings</h6>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-4 text-end fw-bold">Rate Logic:</div>
+                                    <div class="col-md-8 d-flex align-items-center text-primary p-0">
+                                        <i class="bi bi-plus-circle me-1"></i> Add Modifier
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>   <!--model body div ends-->
-                <div class="modal-footer">
-                    <button type="button" id="saveRoomOrder" class="btn btn-primary w-100">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- CMTEST (edit) model -->
-    <div class="modal fade custom-small-modal" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Create Availability Rule</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="general-tab-btn" data-bs-toggle="tab" href="#general-tab">General Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="mapping-tab-btn" data-bs-toggle="tab" href="#mapping-tab">Mapping</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="channel-tab-btn" data-bs-toggle="tab" href="#channel-tab">Channel Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="readiness-tab-btn" data-bs-toggle="tab" href="#readiness-tab">Readiness Check</a>
-                        </li>
-                    </ul>
-    
-                    <!-- Content Sections -->
-                    <div class="tab-content p-3">
-                        <div id="general-tab" class="tab-pane fade">
-                            <p><strong>Id:</strong> c1bed4c7-3826-4edf-bfd2-08449b4740de</p>
-                            <p><strong>Title:</strong> <input type="text" class="w-50" placeholder="Title"></p>
-                    
-                            <p><strong>Default Currency:</strong>
-                                <select name="currency" id="currency">
-                                    <option value="usd">USD</option>
-                                    <option value="eur">EUR</option>
-                                    <option value="gbp">GBP</option>
-                                    <option value="inr">INR</option>
-                                </select>
-                            </p>
-                    
-                            <p><strong>Property Type:</strong>
-                                <label for="propertyType">Choose a property type:</label>
-                                <select name="propertyType" id="propertyType">
-                                    <option value="hotel">Hotel</option>
-                                    <option value="apartment">Apartment</option>
-                                    <option value="resort">Resort</option>
-                                    <option value="villa">Villa</option>
-                                </select>
-                            </p>
-                    
-                            <p><strong>Billing Type:</strong> <input type="text" class="w-50" placeholder="Hotel" disabled></p>
+                        
+                        <div id="readiness-tab" class="tab-pane fade d-flex justify-content-center align-items-center text-center m-5" style="height: 100%;">
+                            <div>
+                                <i class="bi bi-check-circle-fill text-success fs-1 mb-2"></i>
+                                <h6>Everything is ready to activate</h6>
+                                <hr class="w-50 mx-auto">
+                            </div>
                         </div>
-                    
-                        <div id="mapping-tab" class="tab-pane fade">bbb</div>
-                        <div id="channel-tab" class="tab-pane fade">ccc</div>
-                        <div id="readiness-tab" class="tab-pane fade">ddd</div>
+                        
+                    </div><!-- main div of all tab-content ends -->
+                    </div>  <!--modal body div end-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary w-100">Save</button>
                     </div>
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary w-100">Save</button>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- demo model -->
-    <div class="modal fade custom-small-modal" id="demo" tabindex="-1" aria-labelledby="demonLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Property</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                   demo
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary w-100">Save</button>
+        <!-- end CMTEST modal -->
+        <!-- demo model -->
+        <div class="modal fade custom-small-modal" id="demo" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Property</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="edit-tab-btn" data-bs-toggle="tab" href="#edit-tab">Edit</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="content-tab-btn" data-bs-toggle="tab" href="#content-tab">Content</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="settings-tab-btn" data-bs-toggle="tab" href="#settings-tab">Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="policies-tab-btn" data-bs-toggle="tab" href="#policies-tab">Policies</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" id="tax-sets-tab-btn" data-bs-toggle="tab" href="#tax-sets-tab">Tax Sets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tax-tab-btn" data-bs-toggle="tab" href="#tax-tab">Taxes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="webhooks-tab-btn" data-bs-toggle="tab" href="#webhooks-tab">Webhooks</a>
+                            </li> -->
+                        </ul>
+                        <!--main div-->
+                        <div class="tab-content p-3">
+                            <!-- Edit Tab Content -->
+                            <div id="edit-tab" class="tab-pane fade show active">
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="">ID:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p class="">OSA-9923B69307</p>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Title:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="tile" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Default Currency:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-select">
+                                            <option>US Dollar (USD)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Property Type:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select name="type" class="form-select">
+                                            <option value="">Hotel</option>
+                                            <option value="Deluxe">Deluxe</option>
+                                            <option value="Penthouse">Penthouse</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Billing Type:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="property" class="form-control" placeholder="Hotel" disabled>
+                                    </div>
+                                </div>
+                                <div class="m-2">
+                                    <h6>Contacts</h1><hr>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label for="email" class="form-label">Email:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="email" id="email" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label for="phone" class="form-label">Phone:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="phone" id="phone" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label for="website" class="form-label">Website:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="website" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="m-2">
+                                    <h6>Location</h1><hr>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Country:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-select" id="countryDropdown" onchange="updateTimezone()">
+                                            <option value="US">United States</option>
+                                            <option value="UK">United Kingdom</option>
+                                            <option value="IN">India</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="JP">Japan</option>
+                                            <option value="CN">China</option>
+                                            <option value="SG">Singapore</option>
+                                            <option value="AE">United Arab Emirates</option>
+                                            <option value="DE">Germany</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Time Zone:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-select" id="timezoneDropdown">
+                                            <!-- Time zones will be populated dynamically -->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label for="postal-code" class="form-label">Postal Code:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="postal-code" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label for="state-region" class="form-label">State / Region:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="state-region" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label for="city" class="form-label">City:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="city" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label for="address" class="form-label">Address:</label>
+                                    </div>
+                                    <div class="col-md-8 mb-2">
+                                        <input type="text" id="address" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="col-md-4 text-end"></div>
+                                    <div class="col-md-8">
+                                        <button class="btn btn-primary form-control" onclick="showLatLngFields()"> <i class="bi bi-geo-alt"></i> Find location</button>
+                                    </div>
+                                </div>
+                                <!-- Hidden Latitude & Longitude Fields -->
+                                <div class="row mb-2" id="latLngFields" style="display: none;">
+                                    <div class="col-md-4 text-end">
+                                        <label for="latitude" class="form-label">Latitude:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="latitude" class="form-control" placeholder="Latitude">
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                        <label for="longitude" class="form-label">Longitude:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="longitude" class="form-control" placeholder="Longitude">
+                                    </div>
+                                </div>
+                            </div><!-- edit Tab  -->
+                        
+                            <!-- Content Tab -->
+                            <div id="content-tab" class="tab-pane fade">
+                                <div class="row">
+                                    <div class="col-md-4 text-end">
+                                        <label for="Description" class="form-label">Property Logo:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <!-- Image Preview -->
+                                        <img id="logoPreview" src="default-logo.png" alt="Property Logo" class="img-fluid mb-2" style="max-width: 150px; height: auto; border: 1px solid #ccc; padding: 5px;">
+                                
+                                        <!-- File Input -->
+                                        <input type="file" class="form-control" id="logoUpload" accept="image/*" onchange="previewLogo()">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end">
+                                        <label for="Description" class="form-label">Description:</label> 
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control mb-2" rows="5" placeholder="Description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-end">
+                                        <label for="facilities" class="form-label">Facilities:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" id="facilities" class="form-control" placeholder="facilities">
+                                    </div>
+                                </div>
+                            
+                                <h7>Photos:</h7>
+                                    <hr>
+                                <div class="image-upload-wrapper" onclick="document.getElementById('imageInput').click();">
+                                    <p class="upload-text">Click or Drag & Drop to Upload Images</p>
+                                    <input type="file" id="imageInput" accept="image/*" multiple onchange="previewImages(event)">
+                                </div>
+                                    
+                                <div class="image-preview-container" id="imagePreviewContainer"></div>
+                            </div><!-- content Tab end-->
+                        
+                            <!-- Settings Tab -->
+                            <div id="settings-tab" class="tab-pane fade">
+                                <h7>Price Setting</h7><hr>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="">Min price:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="property" class="form-control" placeholder="Min price">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Max price:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="property" class="form-control" placeholder="Max price">
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                    </div>
+                                    <div class="col-md-8 text-muted small">
+                                        <i>Here you can manage the minimum and maximum price for the property</i>
+                                    </div>
+                                </div>
+
+                                <h7>Automatic Availability Update Settings</h7><hr>
+                                <p>Here you will decide what should happen when a New, Modified or Cancelled booking happens.
+                                    If the availability will change automatically or the PMS will control these changes.</p>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">New booking:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="checkbox" name="new-booking"checked>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                        </div>
+                                        <div class="col-md-8 text-muted small">
+                                        If selected, for any new bookings created the availability will be negatively adjusted
+                                        </div>
+                                    </div> 
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Modified booking:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="checkbox" name="Modified"checked>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                        </div>
+                                        <div class="col-md-8 text-muted small">If selected, for any modified bookings created the availability will be automatically adjusted
+                                        </div>
+                                    </div> 
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Cancelled booking:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="checkbox" name="Cancelled-booking"checked>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                        </div>
+                                        <div class="col-md-8 text-muted small">If selected, for any cancelled bookings the availability will be positively adjusted
+                                        </div>
+                                    </div> 
+                                    <h7>Inventory Days</h7><hr>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Inventory Days:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" name="inventory" class="form-control" placeholder="Inventory">
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                        </div>
+                                        <div class="col-md-8 text-muted small">
+                                            <i>Set the length of the inventory table in number of days. Min: 100, Max: 730</i>
+                                        </div>
+                                    </div>
+                                    
+                                    <h7>Minimum Stay Settings</h7><hr>
+                                    <p>Here you can simplify the user experience for your user by using only one kind of minimum stay.</p>
+                                    <p>Note: Changing these settings will remove all values from the unused min stay type.
+                                        Please full sync from PMS after any changes here and check.</p>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Minimum Stay Settings:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-select">
+                                                <option>Both</option>
+                                                <option>Min Stay Arrival</option>
+                                                <option>Min Stay Through</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <h7>Cut off time</h7><hr>
+                                    <p>Control when to stop sales for same day reservations</p>
+                                    <p>We will use the property timezone, when the time is reached all availability will be 0 for the current day</p>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Cut off time:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-select">
+                                                <option>None</option>
+                                                <option>00:00</option><option>00:30</option><option>1:00</option>
+                                                <option>1:30</option><option>2:00</option><option>2:30</option>
+                                                <option>3:00</option><option>3:30</option><option>4:00</option> <option>4:30</option><option>5:00</option> <option>5:30</option><option>6:00</option>
+                                                <option>6:30</option><option>7:00</option> <option>7:30</option><option>8:00</option> <option>8:30</option><option>9:00</option> <option>9:30</option><option>10:00</option> <option>10:30</option><option>11:00</option>
+                                                <option>11:30</option><option>12:00</option> <option>12:30</option><option>13:00</option> <option>13:30</option><option>14:00</option> <option>14:30</option><option>15:00</option> <option>15:30</option><option>16:00</option>
+                                                <option>16:30</option> <option>17:00</option><option>17:30</option> <option>18:00</option><option>18:30</option> <option>19:00</option><option>19:30</option> <option>20:00</option><option>20:30</option> <option>21:00</option><option>21:30</option>
+                                                <option>22:00</option> <option>22:30</option><option>23:00</option> <option>23:30</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Cut off Days:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-select">
+                                                <option>Same day</option>
+                                                <option>2 days</option><option>3 days</option><option>4 days</option>
+                                                <option>5 days</option><option>6 days</option><option>7 days</option>
+                                                <option>8 days</option><option>9 days</option><option>10 days</option> <option>11 days</option><option>12 days</option> <option>13 days</option><option>14 days</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <h7>Max Days Advance</h7><hr>
+                                    <p>Close Availability for some dates in future.</p>
+                                    <p>Please, keep in mind, Availability will not be opened automatically.</p>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Enable:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="checkbox" name="enable">
+                                        </div>
+                                    </div>
+                            </div><!-- Settings Tab end-->
+                        
+                            <!-- Policies Tab -->
+                            <div id="policies-tab" class="tab-pane fade">
+                                <div class="row mb-2">
+                                    <div class="col-md-4 text-end">
+                                        <label class="form-label">Hotel Policy:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <a href="#" class="text-decoration-none">Assign hotel policy</a>
+                                    </div>
+                                </div>
+
+                                <!-- Cancellation Policies Heading with Button -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="m-0">Cancellation Policies</h6>
+                                    <button class="btn btn-link text-primary p-0 border-0 text-decoration-none" id="create1-btn">
+                                        <i class="bi bi-plus-circle"></i> Create
+                                    </button>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center p-2">
+                                    <h6 class="m-0">Cancellation</h6>
+                                    <!-- Dropdown Button -->
+                                    <div class="dropdown">
+                                        <button class="btn btn-link text-primary p-0 border-0 text-decoration-none dropdown-toggle" type="button" id="cancellationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-check-circle text-success"></i> Create
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul class="dropdown-menu" aria-labelledby="cancellationDropdown">
+                                            <li><a class="dropdown-item" href="#" id="create2-btn"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Policies Tab end -->
+
+                            <!-- Tax Sets Tab -->
+                            <!-- <div id="tax-sets-tab" class="tab-pane fade">
+                                <p>Tax Sets content goes here...</p>
+                            </div> -->
+                            <!-- Tax Sets Tab end-->
+                        
+                            <!-- Taxes Tab -->
+                            <!-- <div id="tax-tab" class="tab-pane fade">
+                                <p>Taxes content goes here...</p>
+                            </div> -->
+                            <!-- Taxes Tab end-->
+                        
+                            <!-- Webhooks Tab -->
+                            <!-- <div id="webhooks-tab" class="tab-pane fade">
+                                <p>Webhooks content goes here...</p>
+                            </div> -->
+                            <!-- Webhooks Tab end-->
+                        
+
+                        </div>  <!--all tab-content  div end-->
+                    </div>  <!--modal body div end-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary w-100">Save</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+        <!-- end demo modal -->
+
+        <div class="d-flex felx-row justify-content-end">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#">&lt;</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div><!--container ends-->
     <script>
         $(function(){
             $("#nav-placeholder").load("../nav.html");

@@ -50,7 +50,7 @@
                     <td>DEMO</td>
                     <td>
                         <div class="dropdown">
-                            <a href="#" class="text-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="#" class="text-primary dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
                                 Actions
                             </a>
                             <ul class="dropdown-menu">
@@ -66,23 +66,10 @@
                 <!-- Add more rows here -->
             </tbody>
         </table>
-        <div class="d-flex felx-row justify-content-end">
-        <nav>
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#">&lt;</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-            </ul>
-        </nav>
-        </div>
-    </div>
+       
     
     <!-- edit model -->
-    <div class="modal fade custom-small-modal" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+    <div class="modal fade custom-modal" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -102,7 +89,7 @@
                     <div class="tab-content p-3">
                         <!-- General Tab Content -->
                         <div id="general-tab" class="tab-pane fade show active">
-                            <div class="booking-info p-3">
+                            
                                 <div class="row mb-3">
                                     <div class="col-md-4 text-end">
                                         <label class="form-label">ID:</label>
@@ -154,7 +141,7 @@
                                         <input type="text" name="property" class="form-control">
                                     </div>
                                 </div>
-                            </div>
+                            
                             
                             <div class="m-2">
                                 <h6>Occupancy settings</h1><hr>
@@ -200,7 +187,7 @@
                                 </div>
                             </div>
                         </div>  <!-- general table div end -->
-                    </div>  <!-- main div ends -->
+                   
                     <!-- Content Tab Content -->
                     <div id="content-tab" class="tab-pane fade">
                         <div class="row">
@@ -226,10 +213,10 @@
                         </div>
                             
                         <div class="image-preview-container" id="imagePreviewContainer"></div>
-                              
                     </div>
+                </div>  <!-- tab-content div ends -->
                 </div>  <!--modal body div end-->
-                </div>
+              
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary w-100">Save</button>
                 </div>
@@ -240,7 +227,7 @@
     <!-- end modal -->
 
     <!-- create rate model -->
-    <div class="modal fade custom-small-modal" id="create_rate" tabindex="-1" aria-labelledby="create_rateLabel" aria-hidden="true">
+    <div class="modal fade custom-modal" id="create_rate" tabindex="-1" aria-labelledby="create_rateLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -478,7 +465,18 @@
         </div>
     </div>
     <!-- end modal -->
-
+     
+     <div class="d-flex felx-row justify-content-end">
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled"><a class="page-link" href="#">&lt;</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+            </ul>
+        </nav>
+        </div>
+    </div><!--container ends-->
     <script>
         $(function(){
             $("#nav-placeholder").load("../nav.html");

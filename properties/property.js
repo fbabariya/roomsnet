@@ -1,3 +1,4 @@
+// to load timezone according to selected country 
 const timezones = {
     "US": ["UTC -05:00 (Eastern Time)", "UTC -06:00 (Central Time)", "UTC -07:00 (Mountain Time)", "UTC -08:00 (Pacific Time)"],
     "UK": ["UTC +00:00 (Greenwich Mean Time)"],
@@ -49,3 +50,39 @@ function previewLogo() {
         reader.readAsDataURL(file);
     }
 }
+
+// to keep create1 model open
+document.addEventListener("DOMContentLoaded", function () {
+    const createBtn1 = document.getElementById("create1-btn");
+    const createBtn2 = document.getElementById("create2-btn");
+    const createAvailabilityModal = new bootstrap.Modal(document.getElementById("create1"));
+
+    // Attach event listener to both buttons
+    [createBtn1, createBtn2].forEach(btn => {
+        btn.addEventListener("click", function () {
+            createAvailabilityModal.show();
+        });
+    });
+});
+
+
+// to tagle box clr in policy tab named default and total price
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleBoxes = document.querySelectorAll(".toggle-box");
+
+    toggleBoxes.forEach(box => {
+        box.addEventListener("click", function () {
+            // Remove active styles from all boxes
+            toggleBoxes.forEach(b => {
+                b.classList.remove("border-primary", "text-primary");
+                b.classList.add("border-secondary", "text-secondary");
+                b.dataset.selected = "false";
+            });
+
+            // Apply active styles to clicked box
+            this.classList.remove("border-secondary", "text-secondary");
+            this.classList.add("border-primary", "text-primary");
+            this.dataset.selected = "true";
+        });
+    });
+});
