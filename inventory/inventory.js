@@ -1,7 +1,7 @@
 
 // for calender generation code 
 document.addEventListener("DOMContentLoaded", function () {
-    let currentDate = new Date(document.getElementById("calendarDate").value);
+    let currentDate = new Date();
     let startDayOffset = 0;
     let rooms = [
         { name: "Deluxe", availability: 5, rates: Array(14).fill(100) },
@@ -33,36 +33,90 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < 14; i++) {
             let date = new Date(startDate);
             date.setDate(startDate.getDate() + i);
+            
             let dayName = date.toLocaleDateString("en-US", { weekday: "short" });
-
+            let dayNumber = date.getDate();
+            let monthName = date.toLocaleDateString("en-US", { month: "short" });
+        
             let th = document.createElement("th");
-            th.innerHTML = `${dayName} <br> ${date.getDate()} ${date.toLocaleDateString("en-US", { month: "short" })}`;
+            th.innerHTML = `
+                <div class="day-name">${dayName}</div>
+                <div class="day-number">${dayNumber}</div>
+                <div class="month-name">${monthName}</div>
+            `;
             headerRow.appendChild(th);
         }
+        document.getElementById("calendarDate").addEventListener("change", function () {
+            currentDate = new Date(this.value);
+            startDayOffset = 0; // Reset offset when selecting a new date
+            updateCalendar();
+        });
     }
 
     function generateRoomData() {
         let body = document.getElementById("calendarBody");
         body.innerHTML = "";
-
+    
         rooms.forEach(room => {
-            let availabilityRow = `<tr><td class="room-category">${room.name}</td>`;
-            let ratesRow = `<tr><td>BB</td>`;
-            let ratesRowSec = `<tr><td>BB</td>`;
+            let availabilityRow = `<tr><td class="room-category">
+                                        <div class="room-name">
+                                            <span>${room.name}</span>
+                                            <span class="avl-text"data-bs-toggle="tooltip" data-bs-placement="top" title="Availability">AVL</span>
+                                        </div>
+                                    </td>`;
+    
+            let repeatCount = 1; // Counter for BB row repetition
+    
+            let ratesRow = `<tr>
+                                <td class="bb-label">BB 
+                                <span class="bb-extra">
+                                    <i class="bi bi-link-45deg text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Connected Channel"></i>  1
+                                    <i class="bi bi-person"data-bs-toggle="tooltip" data-bs-placement="top" title="Occupacy"></i> ${repeatCount}
+                                    <span class="bb-extrafor-links" data-bs-toggle="tooltip" data-bs-placement="right" title="Availability Offset">AVO</span>
+                                    <i class="bi bi-link-45deg" data-bs-toggle="tooltip" data-bs-placement="right" title="Rates derived from BB (2 Persons ) / Deluxe"></i>
+                                </span>
+                                </td>`;
+    
+            let ratesRow2 = `<tr>
+                                <td class="rate-with-link">
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" title="Rate">RATE</span>
+                                <i class="bi bi-link-45deg" data-bs-toggle="tooltip" data-bs-placement="top" title="Rates derived from BB  (2 Persons )  / Deluxe"></i>
+                                </td>`;                    
+            let ratesRowSec = `<tr class="end-line">
+                                <td>
+                                <span class="bb-extra" data-bs-toggle="tooltip" data-bs-placement="right" title="Rate">RATE</span>
+                                </td>`;
+    
             for (let i = 0; i < 14; i++) {
-                availabilityRow += `<td>${room.availability}</td>`;
-                ratesRow += `<td>${room.rates[i]}</td>`;
-                ratesRowSec += `<td>${room.rates[i]}</td>`;
+                availabilityRow += `<td class="cl-rate" data-bs-toggle="modal" data-bs-target="#overrideModal1">${room.availability}</td>`;
+                ratesRow += `<td class="cl-1">0</td>`;
+                ratesRow2 += `<td class="cl-1">${room.rates[i]}</td>`;
+                ratesRowSec += `<td class="cl-rate" data-bs-toggle="modal" data-bs-target="#overrideModal2">${room.rates[i]}</td>`;
             }
-
+    
             availabilityRow += `</tr>`;
             ratesRow += `</tr>`;
+            ratesRow2 += `</tr>`;
             ratesRowSec += `</tr>`;
-
-            body.innerHTML += availabilityRow + ratesRow + ratesRowSec;
+    
+            // **Appending the same BB row again with incremented count**
+            let ratesRowRepeat = `<tr>
+                                    <td class="bb-label">BB 
+                                    <span class="bb-extra">
+                                        <i class="bi bi-link-45deg text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Connected channels"></i> 1 
+                                        <i class="bi bi-person"data-bs-toggle="tooltip" data-bs-placement="top" title="Occupacy"></i>${repeatCount + 1}
+                                        <span class="bb-extrafor-links"data-bs-toggle="tooltip" data-bs-placement="right" title="Availability Offset">AVO</span>
+                                        <i class="bi bi-link-45deg"data-bs-toggle="tooltip" data-bs-placement="right" title="Rates derived from BB  (2 Persons )  / Deluxe"></i>
+                                    </span>
+                                    </td>`;
+    
+            for (let i = 0; i < 14; i++) {
+                ratesRowRepeat += `<td class="cl-1">0</td>`;
+            }
+            ratesRowRepeat += `</tr>`;
+            body.innerHTML += availabilityRow + ratesRow + ratesRow2 + ratesRowRepeat + ratesRowSec;
         });
     }
-
     document.getElementById("calendarDate").addEventListener("change", function (event) {
         currentDate = new Date(event.target.value);
         startDayOffset = 0;
@@ -133,3 +187,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// for bootstrap tooltiptrigger that is to show msg on hover on icons
+document.addEventListener("DOMContentLoaded", function () {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});

@@ -7,13 +7,13 @@
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="inventory.css">
+    <link rel="stylesheet" href="../inventory/inventory.css">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
    
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <!-- Bootstrap Icons (Fix for missing icons) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -25,20 +25,7 @@
         <!-- Navigation -->
         <div id="nav-placeholder"></div>
     </header>
-        <!-- Dropdown for Actions -->
-        <div class="mb-3 d-flex flex-row justify-content-end">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                    Actions
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#bulkUpdateModal">Bulk Update</a></li>
-                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#availability">Availability Rules</a></li>
-                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#settings">Settings</a></li>
-                </ul>
-            </div>
-        </div>
-    
+    <div class="container">   
         <!-- Bulk Update Modal -->
         <div class="modal fade custom-modal" id="bulkUpdateModal" tabindex="-1" aria-labelledby="bulkUpdateModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -49,199 +36,188 @@
                     </div>
                     <div class="modal-body">
                         <!-- Affected Dates -->
-                        <div class="mb-3">
-                             
-                            <div class="row mb-3">
-                                <label class="col-4 fw-bold">Affected Dates:</label>
-                                <div class="col-4">
-                                    <input type="date" class="form-control">
-                                </div>
-                                <div class="col-4">
-                                    <input type="date" class="form-control">
-                                </div>
+                        <div class="row mb-3">
+                            <label class="col-4 fw-bold">Affected Dates:</label>
+                            <div class="col-4">
+                                <input type="date" class="form-control">
                             </div>
-                            
-                            <div class="row mt-2">
-                                <div class="col-4"></div>
-                                    <div class="col-8">
-                                        <input type="checkbox" checked> Mo
-                                        <input type="checkbox" checked> Tu
-                                        <input type="checkbox" checked> We
-                                        <input type="checkbox" checked> Th
-                                        <input type="checkbox" checked> Fr
-                                        <input type="checkbox" checked> Sa
-                                        <input type="checkbox" checked> Su
-                                    </div>
+                            <div class="col-4">
+                                <input type="date" class="form-control">
                             </div>
                         </div>
-    
+                        <div class="row ">
+                            <div class="col-4"></div>
+                                <div class="col-8">
+                                    <input type="checkbox" checked> Mo
+                                    <input type="checkbox" checked> Tu
+                                    <input type="checkbox" checked> We
+                                    <input type="checkbox" checked> Th
+                                    <input type="checkbox" checked> Fr
+                                    <input type="checkbox" checked> Sa
+                                    <input type="checkbox" checked> Su
+                                </div>
+                        </div>
                         <!-- Affected Restrictions -->
-                        <div class="container">
-                            <div class="row mb-2">
-                                <label class="col-4 fw-bold">Affected Restrictions:</label>
-                                <div class="col-4">
-                                    <input type="checkbox" class="form-check-input" id="selectAllRestrictions">
-                                    <label class="form-check-label fw-bold">Select All</label>
-                                </div>
-                                <div class="col-4"></div> <!-- Empty space to align grid -->
+                        <div class="row mb-2">
+                            <label class="col-4 fw-bold">Affected Restrictions:</label>
+                            <div class="col-4">
+                                <input type="checkbox" class="form-check-input" id="selectAllRestrictions">
+                                <label class="form-check-label fw-bold">Select All</label>
                             </div>
-                        
-                            <div id="restrictionsContainer">
-                                <!-- Rate -->
-                                <div class="row mb-2">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <input type="checkbox" class="form-check-input restriction-checkbox" data-target="rateInput">
-                                        <label class="form-check-label">Rate</label>
-                                    </div>
-                                    <div class="col-4">
-                                        <input type="text" class="form-control" id="rateInput" placeholder="Enter rate" disabled>
-                                    </div>
-                                </div>
-                        
-                                <!-- Stop Sell (Toggle) -->
-                                <div class="row mb-2">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <input type="checkbox" class="form-check-input restriction-checkbox" data-target="stopSellToggle">
-                                        <label class="form-check-label">Stop Sell</label>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-switch">
-                                            <input type="checkbox" class="form-check-input" id="stopSellToggle" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                        
-                                <!-- Closed To Arrival (Toggle) -->
-                                <div class="row mb-2">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <input type="checkbox" class="form-check-input restriction-checkbox" data-target="closedArrivalToggle">
-                                        <label class="form-check-label">Closed To Arrival</label>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-switch">
-                                            <input type="checkbox" class="form-check-input" id="closedArrivalToggle" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                        
-                                <!-- Closed To Departure (Toggle) -->
-                                <div class="row mb-2">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <input type="checkbox" class="form-check-input restriction-checkbox" data-target="closedDepartureToggle">
-                                        <label class="form-check-label">Closed To Departure</label>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-switch">
-                                            <input type="checkbox" class="form-check-input" id="closedDepartureToggle" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                        
-                                <!-- Min Stay Arrival -->
-                                <div class="row mb-2">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <input type="checkbox" class="form-check-input restriction-checkbox" data-target="minStayInput">
-                                        <label class="form-check-label">Min Stay Arrival</label>
-                                    </div>
-                                    <div class="col-4">
-                                        <input type="text" class="form-control" id="minStayInput" placeholder="Enter Min Stay" disabled>
-                                    </div>
-                                </div>
-                        
-                                <!-- Min Stay Through -->
-                                <div class="row mb-2">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <input type="checkbox" class="form-check-input restriction-checkbox" data-target="minStayThroughInput">
-                                        <label class="form-check-label">Min Stay Through</label>
-                                    </div>
-                                    <div class="col-4">
-                                        <input type="text" class="form-control" id="minStayThroughInput" placeholder="Enter Min Stay" disabled>
-                                    </div>
-                                </div>
-                        
-                                <!-- Max Stay -->
-                                <div class="row mb-2">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <input type="checkbox" class="form-check-input restriction-checkbox" data-target="maxStayInput">
-                                        <label class="form-check-label">Max Stay</label>
-                                    </div>
-                                    <div class="col-4">
-                                        <input type="text" class="form-control" id="maxStayInput" placeholder="Enter Max Stay" disabled>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="col-4"></div> <!-- Empty space to align grid -->
                         </div>
+                        <!--restriction container-->
+                        <div id="restrictionsContainer">
+                            <!-- Rate -->
+                            <div class="row mb-2">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <input type="checkbox" class="form-check-input restriction-checkbox" data-target="rateInput">
+                                    <label class="form-check-label">Rate</label>
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" id="rateInput" placeholder="Enter rate" disabled>
+                                </div>
+                            </div>
+                    
+                            <!-- Stop Sell (Toggle) -->
+                            <div class="row mb-2">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <input type="checkbox" class="form-check-input restriction-checkbox" data-target="stopSellToggle">
+                                    <label class="form-check-label">Stop Sell</label>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-switch">
+                                        <input type="checkbox" class="form-check-input" id="stopSellToggle" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Closed To Arrival (Toggle) -->
+                            <div class="row mb-2">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <input type="checkbox" class="form-check-input restriction-checkbox" data-target="closedArrivalToggle">
+                                    <label class="form-check-label">Closed To Arrival</label>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-switch">
+                                        <input type="checkbox" class="form-check-input" id="closedArrivalToggle" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Closed To Departure (Toggle) -->
+                            <div class="row mb-2">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <input type="checkbox" class="form-check-input restriction-checkbox" data-target="closedDepartureToggle">
+                                    <label class="form-check-label">Closed To Departure</label>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-switch">
+                                        <input type="checkbox" class="form-check-input" id="closedDepartureToggle" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Min Stay Arrival -->
+                            <div class="row mb-2">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <input type="checkbox" class="form-check-input restriction-checkbox" data-target="minStayInput">
+                                    <label class="form-check-label">Min Stay Arrival</label>
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" id="minStayInput" placeholder="Enter Min Stay" disabled>
+                                </div>
+                            </div>
+                    
+                            <!-- Min Stay Through -->
+                            <div class="row mb-2">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <input type="checkbox" class="form-check-input restriction-checkbox" data-target="minStayThroughInput">
+                                    <label class="form-check-label">Min Stay Through</label>
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" id="minStayThroughInput" placeholder="Enter Min Stay" disabled>
+                                </div>
+                            </div>
+                    
+                            <!-- Max Stay -->
+                            <div class="row mb-2">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <input type="checkbox" class="form-check-input restriction-checkbox" data-target="maxStayInput">
+                                    <label class="form-check-label">Max Stay</label>
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" id="maxStayInput" placeholder="Enter Max Stay" disabled>
+                                </div>
+                            </div>
+                        </div><!--restriction container end-->
                         
-
                         <!-- Affected Rooms -->
-                        <div class="container">
-                            <div class="row mb-2">
-                                <label class="col-4 fw-bold">Affected Rooms:</label>
-                                <div class="col-4">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                </div>
-                                <div class="col-4"></div> <!-- Empty space for alignment -->
+                        <div class="row mb-2">
+                            <label class="col-4 fw-bold">Affected Rooms:</label>
+                            <div class="col-4">
+                                <input type="text" class="form-control" placeholder="Search">
                             </div>
-
-                            <!-- Select All Rates -->
-                            <div class="row mb-2">
-                                <div class="col-4"></div>
-                                <div class="col-4">
-                                    <input type="checkbox" class="form-check-input" id="selectAllRooms">
-                                    <label class="form-check-label fw-bold">Select All Rates</label>
-                                </div>
-                                <div class="col-4"></div>
-                            </div>
-
-                            <!-- Room Categories -->
-                            <div class="row mb-2">
-                                <div class="col-4"></div>
-                                <div class="col-4">
-                                    <input type="checkbox" class="form-check-input room-category" data-target="deluxeGroup">
-                                    <label class="form-check-label">Deluxe</label>
-                                </div>
-                                <div class="col-4"></div>
-                            </div>
-
-                            <!-- Subcategory - BB under Deluxe -->
-                            <div class="row mb-2 ms-4"> <!-- ms-4 for indentation -->
-                                <div class="col-4"></div>
-                                <div class="col-4">
-                                    <input type="checkbox" class="form-check-input sub-room deluxeGroup">
-                                    <label class="form-check-label">BB</label>
-                                </div>
-                                <div class="col-4"></div>
-                            </div>
-
-                            <!-- Super Deluxe -->
-                            <div class="row mb-2">
-                                <div class="col-4"></div>
-                                <div class="col-4">
-                                    <input type="checkbox" class="form-check-input room-category" data-target="superDeluxeGroup">
-                                    <label class="form-check-label">Super Deluxe</label>
-                                </div>
-                                <div class="col-4"></div>
-                            </div>
-
-                            <!-- Subcategory - BB under Super Deluxe -->
-                            <div class="row mb-2 ms-4"> <!-- ms-4 for indentation -->
-                                <div class="col-4"></div>
-                                <div class="col-4">
-                                    <input type="checkbox" class="form-check-input sub-room superDeluxeGroup">
-                                    <label class="form-check-label">BB</label>
-                                </div>
-                                <div class="col-4"></div>
-                            </div>
+                            <div class="col-4"></div> <!-- Empty space for alignment -->
                         </div>
 
-                    </div>
+                        <!-- Select All Rates -->
+                        <div class="row mb-2">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <input type="checkbox" class="form-check-input" id="selectAllRooms">
+                                <label class="form-check-label fw-bold">Select All Rates</label>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+
+                        <!-- Room Categories -->
+                        <div class="row mb-2">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <input type="checkbox" class="form-check-input room-category" data-target="deluxeGroup">
+                                <label class="form-check-label">Deluxe</label>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+
+                        <!-- Subcategory - BB under Deluxe -->
+                        <div class="row mb-2 ms-4"> <!-- ms-4 for indentation -->
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <input type="checkbox" class="form-check-input sub-room deluxeGroup">
+                                <label class="form-check-label">BB</label>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+
+                        <!-- Super Deluxe -->
+                        <div class="row mb-2">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <input type="checkbox" class="form-check-input room-category" data-target="superDeluxeGroup">
+                                <label class="form-check-label">Super Deluxe</label>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+
+                        <!-- Subcategory - BB under Super Deluxe -->
+                        <div class="row mb-2 ms-4"> <!-- ms-4 for indentation -->
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <input type="checkbox" class="form-check-input sub-room superDeluxeGroup">
+                                <label class="form-check-label">BB</label>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                    </div>  <!--model body end-->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary w-100">Save</button>
                     </div>
@@ -376,40 +352,197 @@
                 </div>
             </div>
         </div>
-
-    <!-- main calendar code -->
-    <table class="calendar-table">
-        <thead>
-            <tr id="calendarHeader">
-                <!-- First column: Date selector and arrows -->
-                <th class="calendar-controls">
-                    <a id="prevDays" href="#prev" class="arrow-button">
-                        <span role="img" aria-label="arrow-left" class="anticon anticon-arrow-left">
-                            <svg viewBox="64 64 896 896" focusable="false" width="1em" height="1em" fill="currentColor">
-                                <path d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
-                            </svg>
-                        </span>
-                    </a>
-    
-                    <input type="date" id="calendarDate" value="2025-02-05">
-    
-                    <a id="nextDays" href="#next" class="arrow-button">
-                        <span role="img" aria-label="arrow-right" class="anticon anticon-arrow-right">
-                            <svg viewBox="64 64 896 896" focusable="false" width="1em" height="1em" fill="currentColor">
-                                <path d="M869 487.8L491.2 159.9c-2.9-2.5-6.6-3.9-10.5-3.9h-88.5c-7.4 0-10.8 9.2-5.2 14l350.2 304H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h585.1L386.9 854c-5.6 4.9-2.2 14 5.2 14h91.5c1.9 0 3.8-.7 5.2-2L869 536.2a32.07 32.07 0 000-48.4z"></path>
-                            </svg>
-                        </span>
-                    </a>
-                </th>
-                <!-- Other days will be inserted dynamically -->
-            </tr>
-        </thead>
-        <tbody id="calendarBody">
-            <!-- Room rates will be inserted dynamically -->
-        </tbody>
-    </table>
-    
-</div>
+            
+        <div class="container m-2">
+            <div class="row align-items-center mb-2">
+                <!-- Left Side: Dropdown Filters -->
+                <div class="col d-flex gap-2">
+                    <select class="form-select form-select-sm rounded-0">
+                        <option value="" disabled selected>-- Select Rate Option --</option>
+                        <option>Rate and Availability</option>
+                        <option>All Restrictions</option>
+                        <option>Only Availability</option>
+                        <option>Rate and Availability</option>
+                        <option>Availability Per Rate</option>
+                        <option>Close to Arrival</option>
+                        <option>Close to Departure</option>
+                    </select>
+                
+                    <select class="form-select form-select-sm rounded-0">
+                        <option value="" disabled selected>-- Select Room Type --</option>
+                        <option>Deluxe</option>
+                        <option>Super Deluxe</option>
+                        <option>Superior</option>
+                    </select>
+                
+                    <select class="form-select form-select-sm rounded-0">
+                        <option value="" disabled selected>-- Select Rate Filter --</option>
+                        <option>BB</option>
+                    </select>
+                </div>
+                <!-- Right Side: Action Buttons -->
+                <div class="col-auto d-flex gap-2 justify-content-end">
+                    <button class="btn btn-outline-secondary rounded-0" disabled>
+                        <i class="bi bi-cloud-arrow-up"></i> Save Changes
+                    </button>
+                    <button class="btn btn-outline-secondary rounded-0" disabled>
+                        <i class="bi bi-arrow-clockwise"></i> Reset Changes
+                    </button>
+        
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle rounded-0" type="button" data-bs-toggle="dropdown">
+                            Actions
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#bulkUpdateModal">Bulk Update</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#availability">Availability Rules</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#settings">Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <!-- main calendar code -->
+            <table class="calendar-table">
+                <thead>
+                    <tr id="calendarHeader">
+                        <!-- First column: Date selector and arrows -->
+                        <th class="calendar-controls">
+                            <a id="prevDays" href="#prev" class="arrow-button">
+                                <span role="img" aria-label="arrow-left" class="anticon anticon-arrow-left">
+                                    <svg viewBox="64 64 896 896" focusable="false" width="1em" height="1em" fill="currentColor">
+                                        <path d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
+                                    </svg>
+                                </span>
+                            </a>
+            
+                            <input type="date" id="calendarDate" value="">
+            
+                            <a id="nextDays" href="#next" class="arrow-button">
+                                <span role="img" aria-label="arrow-right" class="anticon anticon-arrow-right">
+                                    <svg viewBox="64 64 896 896" focusable="false" width="1em" height="1em" fill="currentColor">
+                                        <path d="M869 487.8L491.2 159.9c-2.9-2.5-6.6-3.9-10.5-3.9h-88.5c-7.4 0-10.8 9.2-5.2 14l350.2 304H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h585.1L386.9 854c-5.6 4.9-2.2 14 5.2 14h91.5c1.9 0 3.8-.7 5.2-2L869 536.2a32.07 32.07 0 000-48.4z"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </th>
+                        <!-- Other days will be inserted dynamically -->
+                    </tr>
+                </thead>
+                <tbody id="calendarBody">
+                    <!-- Room rates will be inserted dynamically -->
+                </tbody>
+            </table>
+        </div>   
+    </div>
+    <!-- value override model for availability row-->
+    <div class="modal fade" id="overrideModal1" tabindex="-1" aria-labelledby="overrideModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="overrideModalLabel">Override Rate</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row mb-2">
+                    <div class="col-4 text-end">Room Type:</div>
+                    <div class="col-8" id="roomType1">Delux</div>
+                </div>
+                
+                <div class="row mb-2">
+                    <div class="col-4 text-end">Date Range:</div>
+                    <div class="col-3">
+                        <input type="date" class="form-control">
+                    </div> -
+                    <div class="col-3">
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 text-end">Restriction:</div>
+                    <div class="col-8" id="restriction">
+                        <select class="form-control">
+                            <option>Availability</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 text-end"><label for="newValue1">Value:</label></div>
+                    <div class="col-8">
+                        <input type="number" class="form-control" id="newValue1" value="">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" id="saveOverride">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- value override model for rate row -->
+    <div class="modal fade" id="overrideModal2" tabindex="-1" aria-labelledby="overrideModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="overrideModalLabel">Override Rate</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row mb-2">
+                    <div class="col-4 text-end">Room Type:</div>
+                    <div class="col-8" id="roomType2">Delux</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 text-end">Rate Plan:</div>
+                    <div class="col-8" id="roomType1">
+                        <span>BB</span> <i class="bi bi-person"></i>2
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 text-end">Date Range:</div>
+                    <div class="col-3">
+                        <input type="date" class="form-control">
+                    </div> -
+                    <div class="col-3">
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 text-end">Restriction:</div>
+                    <div class="col-8" id="restriction">
+                        <select class="form-control">
+                            <option>Rate</option>
+                            <option>Rate and Availability</option>
+                            <option>Close to Arrival</option>
+                            <option>Close to Departure</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 text-end"><label for="current-price">Current Price:</label></div>
+                    <div class="col-8"><p>100</p></div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 text-end"><label for="newValue2">Value:</label></div>
+                    <div class="col-8">
+                        <input type="number" class="form-control" id="newValue2" value="">
+                    </div>
+                    <div class="col-4 text-end"></div>
+                    <div class="col-8"><i>Price will be set to 100 USD</i></div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" id="saveOverride">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     <script>
         $(function(){
             $("#nav-placeholder").load("../nav.html");

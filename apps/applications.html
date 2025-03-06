@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+   
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../apps/applications.css">
+    <!-- Bootstrap Icons (Fix for missing icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body>
+<!-- Page Header Area-->
+<header id="header" class="header">
+    <div id="nav-placeholder"></div>
+</header>
+
+    <div class="container m-3 bg-white p-4 shadow-sm rounded vh-100">
+        <h2 class="Available-label">Available (3)</h2>
+        <div class="row g-0">
+            <!-- App Card 1 -->
+            <div class="col-md-2">
+                <div class="card app-card text-center p-3 shadow-sm" onclick="openAppModal('Apaleo Input Tool', '/assets/images/apaleo-logo', 'This application allows you to give better things mess-up. Just install that application and work through UI or API.', '$7 per month')">
+                    <img src="/assets/images/apaleo-logo" alt="Apaleo" class="app-logo">
+                    <h5 class="app-name">Apaleo Input Tool</h5>
+                </div>
+            </div>
+
+            <!-- App Card 2 -->
+            <div class="col-md-2">
+                <div class="card app-card text-center p-3 shadow-sm" onclick="openAppModal('Mews Input Tool', '/assets/images/mews-logo.jpeg', 'This application allows you to give better and  give all different experiance. Just install that application and work through UI or API.', '$5 per month')">
+                    <img src="/assets/images/mews-logo.jpeg" alt="Mews" class="app-logo">
+                    <h5 class="app-name">Mews Input Tool</h5>
+                </div>
+            </div>
+
+            <!-- App Card 3 -->
+            <div class="col-md-2">
+                <div class="card app-card text-center p-3 shadow-sm"  onclick="openAppModal('Booking System', '/assets/images/booking-logo', 'This application allows you to give to book all desired place to book. Just install that application and work through UI or API.', '$10 per month')">
+                    <img src="/assets/images/booking-logo" alt="Booking" class="app-logo">
+                    <h5 class="app-name">Booking System</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- app model  -->
+    <div class="modal fade" id="appModal" tabindex="-1" aria-labelledby="appModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="appModalLabel">App Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="appImage" src="" alt="App Logo" class="img-fluid mb-3" style="width: 100px; height: 100px;">
+          <p id="appDescription"></p>
+          <p id="appPrice" class="fw-bold"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<script>
+    $(function(){
+        $("#nav-placeholder").load("../nav.html");
+    });
+    $(function(){
+    $("#footer").load("footer.html");
+});
+</script>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="applications.js"></script>
+
+</body>
+</html>

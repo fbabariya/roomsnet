@@ -1,101 +1,116 @@
-
+#calendarHeader th {
+    font-family: Arial, sans-serif; 
+    text-align: center;
+    font-size: 18px;
+}
+#calendarDate{
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.day-name {
+    font-size: 10px;
+    font-weight: 100;
+}
+.day-number {
+    font-size: 12px;
+    font-weight: 900;
+}
+.month-name {
+    font-size: 10px;
+    font-weight: 100;
+}
 .calendar-controls {
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
-    padding: 8px;
 }
-
 .arrow-button {
     text-decoration: none;
     font-size: 16px;
     padding: 5px;
     cursor: pointer;
 }
-
 .calendar-table {
     width: 100%;
     border-collapse: collapse;
     background: #fff;
 }
-
+.calendar-table thead tr {
+    border-bottom: 2px solid #333; 
+}
 .calendar-table th, .calendar-table td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
-
+/* to remove underline form first th only that is from calander date showed with prev and next too */
+.calendar-table th.calendar-controls {
+    border-bottom: none !important;
+}
 .room-category {
     font-weight: bold;
-    background: #f1f1f1;
+    background: #ffffff;
+    color: #0d6efd;
 }
-
-
-/* styles for inventory model of bulk update*/
-  /* Custom modal styles */
-  .modal.custom-modal .modal-dialog {
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    max-width: 50%;
-    height: 100vh;
-    margin: 0;
+.end-line{
+    border-bottom: 2px solid #333;
+}
+.room-name {
     display: flex;
-    flex-direction: column;
-}
-.modal.custom-modal .modal-content {
-    height: 100%;
-    overflow-y: auto;
-    border-radius: 0; /* Removes rounded corners */
-}
-
-/* Ensure the table is visible */
-.content {
-    margin-left: 50%; /* Adjust content to not overlap with modal */
-    padding: 20px;
-}
-
-.restriction-row {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 8px 12px;
-    border-bottom: 1px solid #ddd; /* Light separator */
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 14px;
 }
-
-.restriction-label {
-    flex-grow: 1; /* Ensures label expands */
-    margin-left: 18px; /* Adds spacing between checkbox and label */
+.avl-text {
+    font-weight: bold;
+    margin-left: 10px;
+    color: #333; /* Adjust color as needed */
+    font-size: 14px;
 }
-
-.restriction-input {
-    width: 150px; /* Adjust width for uniformity */
+.bb-label {
+    text-align: left !important; /* Ensures "BB" stays on the left */
+    font-size: 14px;
+    border-bottom: 1px solid #ddd !important;
+    /* border-bottom: none !important;  */
 }
-
-.restriction-toggle {
-    width: 50px; /* Adjust width for toggle alignment */
+.rate-with-link{
+    /* border-bottom: 2px solid #333; */
+    text-align: right !important;
+    font-size: 14px;
 }
-
-/* Custom size for the smaller modal in availability rules */
-.modal.custom-small-modal .modal-dialog {
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 400%;
-    max-width: 45%;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    background: white;
-    z-index: 1051; /* Ensure it appears above the main modal */
+.bb-extra {
+    float: right; /* Moves extra content to the right */
+    font-weight: normal;
+    color: #333;
+    font-size: 14px;
 }
-.modal.custom-small-modal .modal-content {
-    height: 100%;
-    overflow-y: auto;
-    border-radius: 0;
+/* .bb-extrafor-links{
+    border-bottom: 1px solid #ddd;
+} */
+.rate-main {
+    font-weight: normal; 
+    font-size: 14px;
+    color: #666;
+    /* border-bottom: 1px solid #ddd; */
 }
+.rate-sub {
+    font-weight: normal;
+    font-size: 14px;
+    color: #666;
+}
+.cl-1{
+    color: #c0bcbc;
+}
+.cl-rate:hover {
+        background-color: #ffb74e;
+        transition: background-color 0.2s ease-in-out;
+        opacity: 80%;
+}
+    
